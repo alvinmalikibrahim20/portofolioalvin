@@ -54,8 +54,8 @@ defineProps({ isDark: Boolean })
 defineEmits(['toggle-dark'])
 
 const socialLinks = [
-  { label: 'GitHub', href: 'https://github.com/alvinmalik' },
+  { label: 'GitHub', href: 'https://github.com/alvinmalik30' },
   { label: 'LinkedIn', href: 'https://linkedin.com/in/alvinmalik' },
-  { label: 'Email', href: 'mailto:alvinmalikibrahim20@email.com' },
+  { label: 'Email', href: 'mailto:alvinmalikibrahim20@gmail.com' },
 ]
 </script>

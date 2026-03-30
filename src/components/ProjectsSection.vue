@@ -50,7 +50,7 @@
 
       <div class="text-center mt-12 reveal">
         <a
-          href="https://github.com/alvinmalik"
+          href="https://github.com/alvinmalik30"
           target="_blank"
           rel="noopener noreferrer"
           class="btn-secondary inline-flex"

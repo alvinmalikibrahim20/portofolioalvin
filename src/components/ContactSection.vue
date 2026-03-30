@@ -160,8 +160,8 @@ const form = reactive({
 const contactLinks = [
   {
     label: 'Email',
-    value: 'alvinmalikibrahim20@email.com',
-    href: 'mailto:alvinmalikibrahim20@email.com',
+    value: 'alvinmalikibrahim20@gmail.com',
+    href: 'mailto:alvinmalikibrahim20@gmail.com',
     icon: '<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>',
     iconBg: 'bg-blue-500/10 text-blue-400',
     external: false,
