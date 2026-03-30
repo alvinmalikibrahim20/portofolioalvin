@@ -56,6 +56,6 @@ defineEmits(['toggle-dark'])
 const socialLinks = [
   { label: 'GitHub', href: 'https://github.com/alvinmalik' },
   { label: 'LinkedIn', href: 'https://linkedin.com/in/alvinmalik' },
-  { label: 'Email', href: 'mailto:alvin.malik@email.com' },
+  { label: 'Email', href: 'mailto:alvinmalikibrahim20@email.com' },
 ]
 </script>
