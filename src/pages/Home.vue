@@ -4,9 +4,11 @@
     <main>
       <HeroSection />
       <ProjectsSection />
+      <WorkExperienceSection />
       <AboutSection />
       <SkillsSection />
       <ExperienceSection />
+      <TestimonialsSection />
       <ContactSection />
     </main>
     <footer class="max-w-content mx-auto px-6 md:px-10 py-10 border-t border-line">
@@ -35,7 +37,9 @@ import HeroSection from '../components/HeroSection.vue'
 import AboutSection from '../components/AboutSection.vue'
 import SkillsSection from '../components/SkillsSection.vue'
 import ProjectsSection from '../components/ProjectsSection.vue'
+import WorkExperienceSection from '../components/WorkExperienceSection.vue'
 import ExperienceSection from '../components/ExperienceSection.vue'
+import TestimonialsSection from '../components/TestimonialsSection.vue'
 import ContactSection from '../components/ContactSection.vue'
 
 const socialLinks = [

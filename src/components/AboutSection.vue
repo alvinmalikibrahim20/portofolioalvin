@@ -29,7 +29,7 @@
       <div class="md:col-span-3 reveal">
         <img
           v-if="!showFallback"
-          src="/src/assets/alvin.png"
+          src="/images/alvin.png"
           alt="Portrait of Alvin Malik"
           class="w-40 md:w-full max-w-[13rem] rounded-sm grayscale object-cover aspect-square"
           @error="showFallback = true"
