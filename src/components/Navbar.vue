@@ -3,7 +3,7 @@
     <div class="flex items-start justify-between gap-6">
       <a href="#top" @click.prevent="scrollTo('#top')" class="leading-snug">
         <span class="block font-medium text-sm">Alvin Malik</span>
-        <span class="block text-sm text-muted">Fullstack &amp; Mobile Developer</span>
+        <span class="block text-sm text-muted">Web &amp; Mobile Developer — Automotive Systems</span>
       </a>
 
       <nav class="hidden sm:flex items-center gap-6 text-sm pt-0.5" aria-label="Main navigation">
@@ -46,16 +46,27 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 
 const menuOpen = ref(false)
 
-const navItems = [
+const allNavItems = [
   { id: 'work', label: 'Work' },
   { id: 'experience', label: 'Experience' },
   { id: 'about', label: 'About' },
   { id: 'contact', label: 'Contact' },
 ]
+
+/*
+ * Menu hanya menampilkan section yang benar-benar ada di halaman.
+ * Jadi kalau "Experience" masih disembunyikan (lihat src/site.config.js),
+ * link-nya tidak akan muncul dan tidak ada menu yang mengarah ke ruang kosong.
+ */
+const navItems = ref(allNavItems)
+
+onMounted(() => {
+  navItems.value = allNavItems.filter((item) => document.getElementById(item.id))
+})
 
 const scrollTo = (selector) => {
   const el = document.querySelector(selector)

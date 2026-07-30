@@ -1,5 +1,9 @@
 <template>
-  <section id="testimonials" class="max-w-content mx-auto px-6 md:px-10 py-20 md:py-28 border-t border-line">
+  <section
+    v-if="siteConfig.testimonialsReady"
+    id="testimonials"
+    class="max-w-content mx-auto px-6 md:px-10 py-20 md:py-28 border-t border-line"
+  >
     <div class="grid md:grid-cols-12 gap-10">
       <div class="md:col-span-3">
         <p class="eyebrow reveal">Kind words</p>
@@ -28,8 +32,13 @@
 
 <script setup>
 import { onMounted } from 'vue'
+import { siteConfig } from '../site.config.js'
 
 /*
+ * Section ini SENGAJA disembunyikan sampai ada testimoni asli.
+ * Setelah diisi, buka src/site.config.js dan ubah
+ * `testimonialsReady` menjadi true.
+ *
  * TODO(Alvin): Ganti dengan testimoni ASLI.
  * Minta 1-2 kalimat dari mantan atasan, rekan kerja, atau klien —
  * lewat LinkedIn recommendation atau chat langsung.

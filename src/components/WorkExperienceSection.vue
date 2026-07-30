@@ -1,5 +1,9 @@
 <template>
-  <section id="experience" class="max-w-content mx-auto px-6 md:px-10 py-20 md:py-28 border-t border-line">
+  <section
+    v-if="siteConfig.workExperienceReady"
+    id="experience"
+    class="max-w-content mx-auto px-6 md:px-10 py-20 md:py-28 border-t border-line"
+  >
     <div class="grid md:grid-cols-12 gap-10">
       <div class="md:col-span-3">
         <p class="eyebrow reveal">Experience</p>
@@ -32,8 +36,13 @@
 
 <script setup>
 import { onMounted } from 'vue'
+import { siteConfig } from '../site.config.js'
 
 /*
+ * Section ini SENGAJA disembunyikan sampai datanya asli.
+ * Setelah data di bawah Anda isi dengan benar, buka
+ * src/site.config.js dan ubah `workExperienceReady` menjadi true.
+ *
  * TODO(Alvin): Ganti data di bawah dengan riwayat kerja Anda yang sebenarnya.
  * - company: nama perusahaan asli
  * - role: jabatan Anda

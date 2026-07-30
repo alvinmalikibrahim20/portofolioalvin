@@ -11,7 +11,7 @@
     <p class="text-sm text-muted mb-3">{{ project.kind }}</p>
 
     <img
-      v-if="project.image"
+      v-if="project.image && siteConfig.projectImagesReady"
       :src="project.image"
       :alt="project.imageAlt || project.title"
       class="w-full max-w-2xl rounded-sm border border-line mb-4"
@@ -22,8 +22,8 @@
       {{ project.description }}
     </p>
 
-    <p v-if="project.result" class="text-sm text-accent mb-4">
-      {{ project.result }}
+    <p v-if="result" class="text-sm text-accent mb-4">
+      {{ result }}
     </p>
 
     <div class="flex flex-wrap items-center gap-x-5 gap-y-3">
@@ -56,7 +56,10 @@
 </template>
 
 <script setup>
-defineProps({
+import { computed } from 'vue'
+import { siteConfig, realText } from '../site.config.js'
+
+const props = defineProps({
   project: {
     type: Object,
     required: true,
@@ -70,4 +73,7 @@ defineProps({
     default: false,
   },
 })
+
+/* Hasil terukur hanya ditampilkan jika sudah diisi asli (bukan "[...]"). */
+const result = computed(() => realText(props.project.result))
 </script>

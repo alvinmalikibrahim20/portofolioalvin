@@ -8,10 +8,15 @@
       <div class="md:col-span-6 reveal">
         <div class="space-y-5 text-[15px] leading-relaxed">
           <p>
-            I&apos;ve been building software for a couple of years now, mostly for
-            companies in the automotive space. My day-to-day is split between
-            frontend work in Vue and Nuxt, mobile development with Flutter,
-            and Laravel on the backend.
+            Most of my work has been for companies in the automotive space —
+            vehicle auctions, inspections, dealer operations. That means I
+            already understand the awkward parts: bids that must never
+            double-count, inspectors working with no signal, and operations
+            teams who need a report five minutes ago.
+          </p>
+          <p>
+            Day to day I&apos;m in Vue and Nuxt on the frontend, Flutter for
+            mobile, and Laravel on the backend.
           </p>
           <p>
             What I enjoy most is the unglamorous part: making things fast,

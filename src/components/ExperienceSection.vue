@@ -31,14 +31,19 @@ import { onMounted } from 'vue'
 
 const services = [
   {
+    title: 'Auction & bidding platforms',
+    description:
+      'Real-time bidding that holds up under pressure — concurrent bids, countdown logic, payment flows, and an admin panel your operations team can actually run without you.',
+  },
+  {
+    title: 'Field & inspection apps',
+    description:
+      'Flutter apps built for people working away from a desk: offline-first, photo and signature capture, automatic PDF reports, and syncing that survives bad connections.',
+  },
+  {
     title: 'Web applications',
     description:
       'From single pages to full platforms — built with Vue or Nuxt on the front, Laravel behind it. I care about the parts users never see: load times, error states, edge cases.',
-  },
-  {
-    title: 'Mobile apps',
-    description:
-      'Cross-platform apps in Flutter that don\u2019t feel cross-platform. One codebase, both stores, and offline support when the use case calls for it.',
   },
   {
     title: 'APIs & integrations',

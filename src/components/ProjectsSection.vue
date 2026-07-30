@@ -30,6 +30,12 @@ import { onMounted } from 'vue'
 import ProjectCard from './ProjectCard.vue'
 
 /*
+ * CATATAN PENTING
+ * Link "Code" dan "Live demo" sengaja dikosongkan (null) karena
+ * sebelumnya hanya mengarah ke halaman profil GitHub, bukan repo
+ * spesifik — klien yang mengklik dan tidak menemukan apa pun akan
+ * kehilangan kepercayaan. Isi URL asli lalu link akan muncul sendiri.
+ *
  * TODO(Alvin): Isi data proyek dengan yang asli.
  * - github: link ke REPO SPESIFIK, bukan halaman profil
  *   (contoh: https://github.com/alvinmalik30/nama-repo)
@@ -50,7 +56,7 @@ const projects = [
     stack: ['Vue', 'Laravel', 'MySQL'],
     image: '/images/projects/auction-web.png',
     imageAlt: 'Vehicle auction platform dashboard',
-    github: 'https://github.com/alvinmalik30',
+    github: null, // TODO(Alvin): isi URL repo spesifik, mis. https://github.com/alvinmalik30/nama-repo
     demo: null,
   },
   {
@@ -63,7 +69,7 @@ const projects = [
     stack: ['Flutter', 'Dart', 'Firebase'],
     image: '/images/projects/auction-mobile.png',
     imageAlt: 'Auction mobile app showing live bids',
-    github: 'https://github.com/alvinmalik30',
+    github: null, // TODO(Alvin): isi URL repo spesifik, mis. https://github.com/alvinmalik30/nama-repo
     demo: null,
   },
   {
@@ -76,7 +82,7 @@ const projects = [
     stack: ['Flutter', 'SQLite', 'REST API'],
     image: '/images/projects/inspection-app.png',
     imageAlt: 'Vehicle inspection checklist app',
-    github: 'https://github.com/alvinmalik30',
+    github: null, // TODO(Alvin): isi URL repo spesifik, mis. https://github.com/alvinmalik30/nama-repo
     demo: null,
   },
   {
@@ -88,7 +94,7 @@ const projects = [
     result: null,
     stack: ['Nuxt', 'Laravel', 'Tailwind CSS'],
     image: null,
-    github: 'https://github.com/alvinmalik30',
+    github: null, // TODO(Alvin): isi URL repo spesifik, mis. https://github.com/alvinmalik30/nama-repo
     demo: null,
   },
   {
@@ -100,7 +106,7 @@ const projects = [
     result: 'Lighthouse score 95+ across all categories',
     stack: ['Nuxt', 'SEO', 'Analytics'],
     image: null,
-    github: 'https://github.com/alvinmalik30',
+    github: null, // TODO(Alvin): isi URL repo spesifik, mis. https://github.com/alvinmalik30/nama-repo
     demo: null,
   },
 ]

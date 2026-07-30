@@ -9,16 +9,23 @@
     </div>
 
     <h1 class="font-serif text-3xl md:text-[2.6rem] leading-snug md:leading-snug max-w-3xl text-balance">
-      I&apos;m Alvin, a developer based in Indonesia. I spend most of my time
-      building web apps with Vue and Nuxt, mobile apps with Flutter, and the
-      Laravel backends that hold them together.
+      I&apos;m Alvin — I build auction, inspection, and dealer management
+      systems for the automotive industry. Vue and Nuxt on the web, Flutter on
+      mobile, Laravel holding it together.
     </h1>
+
+    <p class="mt-6 text-[15px] leading-relaxed text-muted max-w-xl">
+      Based in Indonesia, working with teams anywhere. If your business runs on
+      vehicles, spreadsheets, and people in the field, I&apos;ve probably built
+      something close to what you need.
+    </p>
 
     <div class="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4 text-sm">
       <a href="#work" @click.prevent="scrollTo('#work')" class="border border-line rounded-full px-5 py-2 hover:border-foreground transition-colors">
         Selected work
       </a>
       <a
+        v-if="siteConfig.cvReady"
         href="/cv/alvin-malik-cv.pdf"
         download="Alvin-Malik-CV.pdf"
         class="border border-line rounded-full px-5 py-2 hover:border-foreground transition-colors"
@@ -34,6 +41,7 @@
 
 <script setup>
 import { computed } from 'vue'
+import { siteConfig } from '../site.config.js'
 
 const greeting = computed(() => {
   const hour = new Date().getHours()
