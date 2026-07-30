@@ -29,12 +29,15 @@
 <script setup>
 import { onMounted } from 'vue'
 
+/* Diambil dari CV — hanya yang benar-benar pernah dipakai. */
 const groups = [
-  { name: 'Frontend', items: 'Vue, Nuxt, JavaScript, Tailwind CSS' },
-  { name: 'Mobile', items: 'Flutter, Dart' },
-  { name: 'Backend', items: 'Laravel, PHP, MySQL, REST APIs' },
-  { name: 'Quality', items: 'QA testing, PHPUnit, Cypress, manual testing' },
-  { name: 'Everything else', items: 'Git, Docker, CI/CD, technical SEO, Figma, Linux' },
+  { name: 'Web', items: 'Vue, Nuxt, JavaScript, PHP, Tailwind CSS' },
+  { name: 'Mobile & cross-platform', items: 'Flutter, Dart' },
+  { name: 'Backend & languages', items: 'Go, Java, C++, PHP, REST APIs' },
+  { name: 'Databases', items: 'MySQL, PostgreSQL, Microsoft SQL Server' },
+  { name: 'Enterprise', items: 'Odoo, ERP integration (FRIENDS by Microsoft), Microsoft SSO' },
+  { name: 'Testing', items: 'Manual QA, automation testing, Katalon' },
+  { name: 'Everything else', items: 'Git, technical SEO, Google Analytics, Mikrotik networking' },
 ]
 
 onMounted(() => {

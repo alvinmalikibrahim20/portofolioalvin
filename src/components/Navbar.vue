@@ -2,8 +2,8 @@
   <header class="max-w-content mx-auto px-6 md:px-10 pt-8 md:pt-10">
     <div class="flex items-start justify-between gap-6">
       <a href="#top" @click.prevent="scrollTo('#top')" class="leading-snug">
-        <span class="block font-medium text-sm">Alvin Malik</span>
-        <span class="block text-sm text-muted">Web &amp; Mobile Developer — Automotive Systems</span>
+        <span class="block font-medium text-sm">Alvin Malik Ibrahim</span>
+        <span class="block text-sm text-muted">Web &amp; Mobile Developer</span>
       </a>
 
       <nav class="hidden sm:flex items-center gap-6 text-sm pt-0.5" aria-label="Main navigation">
@@ -54,6 +54,7 @@ const allNavItems = [
   { id: 'work', label: 'Work' },
   { id: 'experience', label: 'Experience' },
   { id: 'about', label: 'About' },
+  { id: 'credentials', label: 'Education' },
   { id: 'contact', label: 'Contact' },
 ]
 

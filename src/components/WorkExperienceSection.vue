@@ -38,35 +38,44 @@
 import { onMounted } from 'vue'
 import { siteConfig } from '../site.config.js'
 
-/*
- * Section ini SENGAJA disembunyikan sampai datanya asli.
- * Setelah data di bawah Anda isi dengan benar, buka
- * src/site.config.js dan ubah `workExperienceReady` menjadi true.
- *
- * TODO(Alvin): Ganti data di bawah dengan riwayat kerja Anda yang sebenarnya.
- * - company: nama perusahaan asli
- * - role: jabatan Anda
- * - period: contoh "Mar 2023 — Present"
- * - highlights: 2-3 poin pencapaian, sebisa mungkin dengan angka
- *   (contoh: "Memangkas waktu inspeksi lapangan 40% dengan aplikasi offline-first")
- */
+/* Data asli, diambil dari CV Alvin Malik Ibrahim. */
 const jobs = [
   {
-    role: 'Fullstack Developer',
-    company: '[Nama perusahaan — ganti dengan yang asli]',
-    period: '2024 — Present',
+    role: 'Programmer Staff',
+    company: 'PT Tunas Rent — Tunas Auction',
+    period: 'Apr 2024 — Present',
     highlights: [
-      '[Pencapaian 1 — contoh: Membangun platform lelang kendaraan real-time yang dipakai N dealer setiap hari]',
-      '[Pencapaian 2 — contoh: Mengurangi waktu muat halaman utama dari Xs menjadi Ys]',
+      'Maintain and extend the public auction platform, first in Nuxt and now as a single Flutter codebase serving web, Android, and iOS.',
+      'Built and still run the finance and operations admin console in Vue, now around 100 modules covering the whole auction lifecycle.',
+      'Refactored the admin to integrate with the company ERP (FRIENDS by Microsoft), replacing manual data entry with ten sync pipelines for customers, permits, winners, settlements, refunds, and vendor payments.',
+      'Migrating parts of the admin onto Odoo, and built the vehicle grading and partner reporting modules.',
     ],
   },
   {
-    role: 'Mobile Developer',
-    company: '[Nama perusahaan — ganti dengan yang asli]',
-    period: '2023 — 2024',
+    role: 'Engineer & Logistics',
+    company: 'PT Pacific Cipta Nusantara',
+    period: 'Mar 2023 — May 2023',
     highlights: [
-      '[Pencapaian 1 — contoh: Merilis aplikasi Flutter ke Play Store & App Store dengan rating X]',
-      '[Pencapaian 2 — contoh: Mengimplementasikan mode offline yang dipakai tim lapangan di N kota]',
+      'Short engineering and logistics assignment between development roles.',
+    ],
+  },
+  {
+    role: 'Web Developer & Digital Marketing',
+    company: 'PT Racer Robot Indonesia',
+    period: 'Aug 2019 — Mar 2023',
+    highlights: [
+      'Designed and built four company sites — the corporate site, a robotics community site, the IYRA competition site, and an e-learning platform.',
+      'Built Facebook ad landing pages and handled SEO and Google Analytics.',
+      'Organised IYRA robotics competitions from regional through to international level.',
+      'Served as master trainer and speaker for train-the-trainer programmes at partner schools.',
+    ],
+  },
+  {
+    role: 'Intern — Hacking & Security',
+    company: 'Badan Pengkajian dan Penerapan Teknologi (BPPT)',
+    period: 'Jan 2018 — Mar 2018',
+    highlights: [
+      'Internship in the government technology agency\u2019s security division.',
     ],
   },
 ]

@@ -39,7 +39,17 @@
           rel="noopener noreferrer"
           class="text-link text-foreground hover:text-accent transition-colors"
         >
-          Live demo
+          Visit live site
+        </a>
+        <a
+          v-for="link in project.extraLinks || []"
+          :key="link.href"
+          :href="link.href"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-link text-muted hover:text-foreground transition-colors"
+        >
+          {{ link.label }}
         </a>
         <a
           v-if="project.github"

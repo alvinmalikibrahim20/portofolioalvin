@@ -29,31 +29,37 @@
 <script setup>
 import { onMounted } from 'vue'
 
+/* Hanya hal-hal yang benar-benar sudah pernah saya kerjakan. */
 const services = [
   {
     title: 'Auction & bidding platforms',
     description:
-      'Real-time bidding that holds up under pressure — concurrent bids, countdown logic, payment flows, and an admin panel your operations team can actually run without you.',
+      'Real-time bidding that holds up when money is on the line — concurrent bids, countdown logic, deposits and bidding permits, and an admin panel your operations team can run without me.',
   },
   {
-    title: 'Field & inspection apps',
+    title: 'One codebase, web and mobile',
     description:
-      'Flutter apps built for people working away from a desk: offline-first, photo and signature capture, automatic PDF reports, and syncing that survives bad connections.',
+      'Flutter targeting web, Android, and iOS together. I migrated an auction platform from separate Nuxt and mobile frontends to a single codebase, so features ship once instead of three times.',
   },
   {
-    title: 'Web applications',
+    title: 'Admin & finance consoles',
     description:
-      'From single pages to full platforms — built with Vue or Nuxt on the front, Laravel behind it. I care about the parts users never see: load times, error states, edge cases.',
+      'The unglamorous internal tooling that businesses actually run on: approvals, master data, payments, refunds, role-based access, and reports that each partner wants in a different shape.',
   },
   {
-    title: 'APIs & integrations',
+    title: 'ERP & systems integration',
     description:
-      'REST APIs with proper auth, sensible error handling, and documentation someone can actually follow. Also third-party integrations that behave.',
+      'Sync pipelines between your app and an ERP — I built ten of them against Microsoft FRIENDS, covering customers, winners, settlements, and vendor payments. The hard part is what happens when one side fails halfway.',
   },
   {
-    title: 'QA & SEO',
+    title: 'Web apps & marketing sites',
     description:
-      'Testing before launch, not after complaints. And technical SEO work — Core Web Vitals, structured data, page speed — so what you ship gets found.',
+      'Vue or Nuxt frontends, plus the technical SEO and analytics side: Core Web Vitals, structured data, page speed. I ran this for four company sites before moving into auction systems.',
+  },
+  {
+    title: 'QA & testing',
+    description:
+      'Manual and automated testing with Katalon, done before launch rather than after complaints. Useful on projects where a regression costs real money.',
   },
 ]
 

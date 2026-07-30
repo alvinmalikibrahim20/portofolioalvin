@@ -12,10 +12,10 @@
         </h2>
 
         <a
-          href="mailto:alvinmalikibrahim20@gmail.com"
+          :href="`mailto:${profile.email}`"
           class="reveal inline-block bg-foreground text-background rounded-full px-6 py-2.5 text-sm hover:bg-accent transition-colors mb-14"
         >
-          alvinmalikibrahim20@gmail.com
+          {{ profile.email }}
         </a>
 
         <dl class="reveal space-y-3 max-w-md">
@@ -49,10 +49,12 @@
 
 <script setup>
 import { onMounted } from 'vue'
+import { profile } from '../site.config.js'
 
 const links = [
-  { label: 'GitHub', href: 'https://github.com/alvinmalik30', value: '@alvinmalik30' },
-  { label: 'LinkedIn', href: 'https://linkedin.com/in/alvin-malik-ibrahim', value: 'alvin-malik-ibrahim' },
+  { label: 'WhatsApp', href: profile.whatsapp, value: profile.phone },
+  { label: 'LinkedIn', href: profile.linkedin, value: 'alvin-malik-ibrahim' },
+  { label: 'GitHub', href: profile.github, value: '@alvinmalik30' },
 ]
 
 onMounted(() => {

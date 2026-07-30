@@ -1,59 +1,46 @@
 /*
  * ============================================================
- *  PUSAT KONTROL WEBSITE — Alvin Malik
+ *  PUSAT KONTROL WEBSITE — Alvin Malik Ibrahim
  * ============================================================
  *
- *  CARA PAKAI:
- *  Ubah `false` menjadi `true` HANYA setelah data aslinya
- *  sudah Anda siapkan. Selama masih `false`, bagian tersebut
- *  otomatis TIDAK TAMPIL — jadi tidak ada placeholder yang
- *  terlihat oleh klien atau recruiter.
+ *  Semua data di file ini sudah ASLI, diambil dari CV Anda dan
+ *  dari hasil pemeriksaan langsung ke tunasauction.com.
  *
- *  Aturan tambahan yang berjalan otomatis:
- *  Teks apa pun yang masih diapit tanda [ ] dianggap
- *  placeholder dan akan disembunyikan sendiri.
+ *  Sakelar di bawah menyembunyikan otomatis bagian yang datanya
+ *  belum siap, supaya tidak ada placeholder yang terlihat.
  */
 
 export const siteConfig = {
-  /*
-   * CV / Resume
-   * ------------------------------------------------------------
-   * Sekarang file public/cv/alvin-malik-cv.pdf masih PLACEHOLDER.
-   * Langkah: timpa file itu dengan CV asli Anda (nama file sama),
-   * lalu ubah nilai di bawah menjadi true.
-   */
-  cvReady: false,
+  /* CV asli sudah terpasang di public/cv/ */
+  cvReady: true,
+  cvPath: '/cv/alvin-malik-ibrahim-cv.pdf',
+
+  /* Riwayat kerja sudah diisi dari CV */
+  workExperienceReady: true,
+
+  /* Screenshot asli tunasauction.com sudah terpasang */
+  projectImagesReady: true,
 
   /*
-   * Riwayat kerja (section "Experience")
-   * ------------------------------------------------------------
-   * Isi data asli di src/components/WorkExperienceSection.vue
-   * (nama perusahaan, jabatan, periode, pencapaian),
-   * lalu ubah menjadi true.
-   */
-  workExperienceReady: false,
-
-  /*
-   * Testimoni (section "Kind words")
-   * ------------------------------------------------------------
-   * Minta 1-2 testimoni asli dari atasan / klien / rekan kerja.
-   * Isi di src/components/TestimonialsSection.vue,
-   * lalu ubah menjadi true.
+   * Testimoni — masih belum ada.
+   * Minta 1-2 kutipan dari atasan di PT Tunas Rent atau rekan
+   * kerja, isi di TestimonialsSection.vue, lalu ubah ke true.
    */
   testimonialsReady: false,
+}
 
-  /*
-   * Gambar proyek
-   * ------------------------------------------------------------
-   * PENTING: gambar di public/images/projects/ saat ini masih
-   * MOCKUP ILUSTRASI, bukan tangkapan layar aplikasi Anda.
-   * Klien berpengalaman bisa mengenalinya dan itu merusak
-   * kepercayaan — jadi untuk sekarang gambar disembunyikan.
-   *
-   * Langkah: timpa file-file di public/images/projects/ dengan
-   * SCREENSHOT ASLI aplikasi Anda, lalu ubah menjadi true.
-   */
-  projectImagesReady: false,
+/* Identitas & kontak — dari CV */
+export const profile = {
+  name: 'Alvin Malik Ibrahim',
+  role: 'Web & Mobile Developer',
+  focus: 'Vehicle auction & dealer systems',
+  location: 'Tangerang Selatan, Indonesia',
+  email: 'alvinmalikibrahim20@gmail.com',
+  phone: '+62 896 3052 3408',
+  phoneHref: 'tel:+6289630523408',
+  whatsapp: 'https://wa.me/6289630523408',
+  linkedin: 'https://linkedin.com/in/alvin-malik-ibrahim',
+  github: 'https://github.com/alvinmalik30',
 }
 
 /*

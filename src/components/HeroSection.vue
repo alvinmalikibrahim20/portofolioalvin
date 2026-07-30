@@ -9,15 +9,20 @@
     </div>
 
     <h1 class="font-serif text-3xl md:text-[2.6rem] leading-snug md:leading-snug max-w-3xl text-balance">
-      I&apos;m Alvin — I build auction, inspection, and dealer management
-      systems for the automotive industry. Vue and Nuxt on the web, Flutter on
-      mobile, Laravel holding it together.
+      I&apos;m Alvin. I build the auction and finance systems behind
+      <a
+        href="https://tunasauction.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-link decoration-line hover:text-accent transition-colors"
+        >Tunas Auction</a
+      >, one of Indonesia&apos;s largest vehicle auction houses.
     </h1>
 
     <p class="mt-6 text-[15px] leading-relaxed text-muted max-w-xl">
-      Based in Indonesia, working with teams anywhere. If your business runs on
-      vehicles, spreadsheets, and people in the field, I&apos;ve probably built
-      something close to what you need.
+      Real-time bidding in Flutter, a hundred-module admin console in Vue, and
+      the ERP integration that keeps the money side honest. Based in Tangerang
+      Selatan, working with teams anywhere.
     </p>
 
     <div class="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4 text-sm">
@@ -26,8 +31,8 @@
       </a>
       <a
         v-if="siteConfig.cvReady"
-        href="/cv/alvin-malik-cv.pdf"
-        download="Alvin-Malik-CV.pdf"
+        :href="siteConfig.cvPath"
+        download="Alvin-Malik-Ibrahim-CV.pdf"
         class="border border-line rounded-full px-5 py-2 hover:border-foreground transition-colors"
       >
         Download CV
