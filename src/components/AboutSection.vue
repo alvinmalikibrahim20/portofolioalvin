@@ -39,7 +39,7 @@
           v-if="!showFallback"
           src="/images/alvin.png"
           alt="Portrait of Alvin Malik Ibrahim"
-          class="w-40 md:w-full max-w-[13rem] rounded-sm grayscale object-cover aspect-square"
+          class="w-40 md:w-full max-w-[13rem] rounded-sm grayscale object-cover object-top aspect-[3/4]"
           @error="showFallback = true"
         />
         <p class="mt-3 text-xs text-muted">Tangerang Selatan, Indonesia</p>
