@@ -17,7 +17,7 @@
             stroke-linecap="round"
             stroke-linejoin="round"
           />
-          <circle cx="16" cy="19.6" r="2.5" class="fill-accent" />
+          <circle cx="16" cy="17.4" r="2.1" class="fill-accent" />
         </svg>
         <span class="leading-snug">
           <span class="block font-medium text-sm">Alvin Malik Ibrahim</span>
