@@ -1,6 +1,6 @@
 <template>
-  <section id="skills" class="max-w-content mx-auto px-6 md:px-10 py-20 md:py-28 border-t border-line">
-    <div class="grid md:grid-cols-12 gap-10">
+  <section id="skills" class="max-w-content mx-auto px-4 sm:px-6 md:px-10 py-16 md:py-28 border-t border-line">
+    <div class="grid md:grid-cols-12 gap-8 md:gap-10">
       <div class="md:col-span-3">
         <p class="eyebrow reveal">Toolbox</p>
       </div>
@@ -10,7 +10,7 @@
           <div
             v-for="group in groups"
             :key="group.name"
-            class="reveal grid sm:grid-cols-12 gap-2 sm:gap-6 items-baseline"
+            class="reveal grid sm:grid-cols-12 gap-1.5 sm:gap-6 items-baseline"
           >
             <dt class="sm:col-span-3 text-sm text-muted">{{ group.name }}</dt>
             <dd class="sm:col-span-9 text-[15px] leading-relaxed">{{ group.items }}</dd>

@@ -1,6 +1,6 @@
 <template>
-  <section id="about" class="max-w-content mx-auto px-6 md:px-10 py-20 md:py-28 border-t border-line">
-    <div class="grid md:grid-cols-12 gap-10">
+  <section id="about" class="max-w-content mx-auto px-4 sm:px-6 md:px-10 py-16 md:py-28 border-t border-line">
+    <div class="grid md:grid-cols-12 gap-8 md:gap-10">
       <div class="md:col-span-3">
         <p class="eyebrow reveal">About</p>
       </div>
@@ -39,7 +39,7 @@
           v-if="!showFallback"
           src="/images/alvin.png"
           alt="Portrait of Alvin Malik Ibrahim"
-          class="w-40 md:w-full max-w-[13rem] rounded-sm grayscale object-cover object-top aspect-[3/4]"
+          class="w-full max-w-[11rem] sm:max-w-[13rem] rounded-sm grayscale object-cover object-top aspect-[3/4]"
           @error="showFallback = true"
         />
         <p class="mt-3 text-xs text-muted">Tangerang Selatan, Indonesia</p>

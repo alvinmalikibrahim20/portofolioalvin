@@ -5,11 +5,18 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 1rem;
+    overflow-x: clip;
   }
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
     font-feature-settings: 'ss01' on, 'cv05' on;
+  }
+
+  img,
+  svg {
+    max-width: 100%;
   }
 
   ::selection {
@@ -31,7 +38,7 @@
 
   /* Understated pill tag */
   .tag {
-    @apply inline-block border border-line rounded-full px-2.5 py-0.5 text-xs text-muted;
+    @apply inline-block border border-line rounded-full px-2.5 py-1 text-xs leading-none text-muted;
   }
 
   /* Gentle scroll reveal — subtle enough to not feel animated */

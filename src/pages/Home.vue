@@ -12,10 +12,10 @@
       <TestimonialsSection />
       <ContactSection />
     </main>
-    <footer class="max-w-content mx-auto px-6 md:px-10 py-10 border-t border-line">
+    <footer class="max-w-content mx-auto px-4 sm:px-6 md:px-10 py-8 sm:py-10 border-t border-line">
       <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-sm text-muted">
         <p>&copy; {{ new Date().getFullYear() }} Alvin Malik Ibrahim</p>
-        <div class="flex items-center gap-5">
+        <div class="flex flex-wrap items-center gap-x-5 gap-y-2">
           <a
             v-for="link in socialLinks"
             :key="link.label"

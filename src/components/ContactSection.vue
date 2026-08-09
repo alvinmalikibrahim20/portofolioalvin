@@ -1,6 +1,6 @@
 <template>
-  <section id="contact" class="max-w-content mx-auto px-6 md:px-10 py-20 md:py-28 border-t border-line">
-    <div class="grid md:grid-cols-12 gap-10">
+  <section id="contact" class="max-w-content mx-auto px-4 sm:px-6 md:px-10 py-16 md:py-28 border-t border-line">
+    <div class="grid md:grid-cols-12 gap-8 md:gap-10">
       <div class="md:col-span-3">
         <p class="eyebrow reveal">Contact</p>
       </div>
@@ -13,7 +13,7 @@
 
         <a
           :href="`mailto:${profile.email}`"
-          class="reveal inline-block bg-foreground text-background rounded-full px-6 py-2.5 text-sm hover:bg-accent transition-colors mb-14"
+          class="reveal inline-flex min-h-11 max-w-full items-center justify-center break-all bg-foreground text-background rounded-full px-4 sm:px-6 py-2.5 text-[13px] sm:text-sm hover:bg-accent transition-colors mb-12 sm:mb-14"
         >
           {{ profile.email }}
         </a>
@@ -22,10 +22,10 @@
           <div
             v-for="link in links"
             :key="link.label"
-            class="flex items-baseline justify-between gap-6 border-b border-line pb-3"
+            class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 sm:gap-6 border-b border-line pb-3"
           >
             <dt class="text-sm text-muted">{{ link.label }}</dt>
-            <dd>
+            <dd class="min-w-0 max-w-full break-all sm:text-right">
               <a
                 :href="link.href"
                 target="_blank"
