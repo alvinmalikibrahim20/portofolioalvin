@@ -1,6 +1,6 @@
 <template>
-  <section id="work" class="max-w-content mx-auto px-6 md:px-10 py-20 md:py-28 border-t border-line">
-    <div class="grid md:grid-cols-12 gap-10">
+  <section id="work" class="max-w-content mx-auto px-4 sm:px-6 md:px-10 py-16 md:py-28 border-t border-line">
+    <div class="grid md:grid-cols-12 gap-8 md:gap-10">
       <div class="md:col-span-3">
         <p class="eyebrow reveal">Selected work</p>
       </div>

@@ -2,9 +2,9 @@
   <section
     v-if="siteConfig.testimonialsReady"
     id="testimonials"
-    class="max-w-content mx-auto px-6 md:px-10 py-20 md:py-28 border-t border-line"
+    class="max-w-content mx-auto px-4 sm:px-6 md:px-10 py-16 md:py-28 border-t border-line"
   >
-    <div class="grid md:grid-cols-12 gap-10">
+    <div class="grid md:grid-cols-12 gap-8 md:gap-10">
       <div class="md:col-span-3">
         <p class="eyebrow reveal">Kind words</p>
       </div>

@@ -1,14 +1,14 @@
 <template>
   <section
     id="credentials"
-    class="max-w-content mx-auto px-6 md:px-10 py-20 md:py-28 border-t border-line"
+    class="max-w-content mx-auto px-4 sm:px-6 md:px-10 py-16 md:py-28 border-t border-line"
   >
-    <div class="grid md:grid-cols-12 gap-10">
+    <div class="grid md:grid-cols-12 gap-8 md:gap-10">
       <div class="md:col-span-3">
         <p class="eyebrow reveal">Education &amp; certificates</p>
       </div>
 
-      <div class="md:col-span-9 grid sm:grid-cols-2 gap-10">
+      <div class="md:col-span-9 grid sm:grid-cols-2 gap-10 sm:gap-8 md:gap-10">
         <div>
           <h3 class="reveal font-serif text-lg mb-5">Education</h3>
           <ul class="space-y-5">

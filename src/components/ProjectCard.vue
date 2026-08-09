@@ -3,9 +3,9 @@
     class="reveal py-8 first:pt-0"
     :class="{ 'border-b border-line': !isLast }"
   >
-    <div class="flex items-baseline justify-between gap-4 mb-2">
+    <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 sm:gap-4 mb-2">
       <h3 class="font-serif text-xl md:text-2xl">{{ project.title }}</h3>
-      <span class="text-sm text-muted shrink-0">{{ project.year }}</span>
+      <span class="text-sm text-muted sm:shrink-0">{{ project.year }}</span>
     </div>
 
     <p class="text-sm text-muted mb-3">{{ project.kind }}</p>
@@ -14,7 +14,7 @@
       v-if="project.image && siteConfig.projectImagesReady"
       :src="project.image"
       :alt="project.imageAlt || project.title"
-      class="w-full max-w-2xl rounded-sm border border-line mb-4"
+      class="w-full max-w-2xl rounded-sm border border-line mb-4 object-cover"
       loading="lazy"
     />
 
@@ -26,12 +26,12 @@
       {{ result }}
     </p>
 
-    <div class="flex flex-wrap items-center gap-x-5 gap-y-3">
+    <div class="flex flex-col items-start gap-4 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-5 sm:gap-y-3">
       <div class="flex flex-wrap gap-2">
         <span v-for="tech in project.stack" :key="tech" class="tag">{{ tech }}</span>
       </div>
 
-      <div class="flex items-center gap-4 text-sm">
+      <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
         <a
           v-if="project.demo"
           :href="project.demo"

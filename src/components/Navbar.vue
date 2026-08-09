@@ -1,10 +1,10 @@
 <template>
-  <header class="max-w-content mx-auto px-6 md:px-10 pt-8 md:pt-10">
-    <div class="flex items-start justify-between gap-6">
-      <a href="#top" @click.prevent="scrollTo('#top')" class="flex items-center gap-3">
+  <header class="max-w-content mx-auto px-4 sm:px-6 md:px-10 pt-5 sm:pt-8 md:pt-10">
+    <div class="flex items-center justify-between gap-3 sm:gap-6">
+      <a href="#top" @click.prevent="scrollTo('#top')" class="flex min-w-0 items-center gap-2.5 sm:gap-3">
         <svg
           viewBox="0 0 32 32"
-          class="w-9 h-9 shrink-0"
+          class="w-8 h-8 sm:w-9 sm:h-9 shrink-0"
           role="img"
           aria-label="Logo Alvin Malik Ibrahim"
         >
@@ -19,9 +19,9 @@
           />
           <circle cx="16" cy="17.4" r="2.1" class="fill-accent" />
         </svg>
-        <span class="leading-snug">
-          <span class="block font-medium text-sm">Alvin Malik Ibrahim</span>
-          <span class="block text-sm text-muted">Web &amp; Mobile Developer</span>
+        <span class="min-w-0 leading-snug">
+          <span class="block whitespace-nowrap font-medium text-sm">Alvin Malik Ibrahim</span>
+          <span class="block whitespace-nowrap text-xs sm:text-sm text-muted">Web &amp; Mobile Developer</span>
         </span>
       </a>
 
@@ -38,7 +38,7 @@
       </nav>
 
       <button
-        class="sm:hidden text-sm text-muted hover:text-foreground transition-colors pt-0.5"
+        class="sm:hidden min-h-11 -mr-2 px-2 text-sm text-muted hover:text-foreground transition-colors"
         @click="menuOpen = !menuOpen"
         :aria-expanded="menuOpen"
       >
@@ -48,7 +48,7 @@
 
     <nav
       v-if="menuOpen"
-      class="sm:hidden mt-6 flex flex-col gap-4 text-sm border-t border-line pt-6"
+      class="sm:hidden mt-4 flex flex-col border-t border-line pt-3 text-sm"
       aria-label="Mobile navigation"
     >
       <a
@@ -56,7 +56,7 @@
         :key="item.id"
         :href="`#${item.id}`"
         @click.prevent="scrollTo(`#${item.id}`); menuOpen = false"
-        class="text-muted hover:text-foreground transition-colors"
+        class="flex min-h-11 items-center text-muted hover:text-foreground transition-colors"
       >
         {{ item.label }}
       </a>

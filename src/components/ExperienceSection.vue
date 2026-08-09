@@ -1,6 +1,6 @@
 <template>
-  <section id="services" class="max-w-content mx-auto px-6 md:px-10 py-20 md:py-28 border-t border-line">
-    <div class="grid md:grid-cols-12 gap-10">
+  <section id="services" class="max-w-content mx-auto px-4 sm:px-6 md:px-10 py-16 md:py-28 border-t border-line">
+    <div class="grid md:grid-cols-12 gap-8 md:gap-10">
       <div class="md:col-span-3">
         <p class="eyebrow reveal">What I can help with</p>
       </div>
@@ -10,7 +10,7 @@
           <li
             v-for="(service, i) in services"
             :key="service.title"
-            class="reveal py-6 first:pt-0 grid sm:grid-cols-12 gap-2 sm:gap-6"
+            class="reveal py-6 first:pt-0 grid sm:grid-cols-12 gap-3 sm:gap-6"
             :class="{ 'border-b border-line': i !== services.length - 1 }"
           >
             <div class="sm:col-span-4">

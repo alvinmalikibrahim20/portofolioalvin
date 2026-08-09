@@ -1,6 +1,6 @@
 <template>
-  <section id="top" class="max-w-content mx-auto px-6 md:px-10 pt-28 md:pt-40 pb-20 md:pb-28">
-    <div class="flex flex-wrap items-center gap-x-5 gap-y-2 mb-6">
+  <section id="top" class="max-w-content mx-auto px-4 sm:px-6 md:px-10 pt-16 sm:pt-24 md:pt-40 pb-16 md:pb-28">
+    <div class="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-x-5 gap-y-2 mb-5 sm:mb-6">
       <p class="text-sm text-muted">{{ greeting }}</p>
       <p class="flex items-center gap-2 text-sm">
         <span class="w-2 h-2 rounded-full bg-accent" aria-hidden="true"></span>
@@ -8,7 +8,7 @@
       </p>
     </div>
 
-    <h1 class="font-serif text-3xl md:text-[2.6rem] leading-snug md:leading-snug max-w-3xl text-balance">
+    <h1 class="font-serif text-[1.85rem] sm:text-3xl md:text-[2.6rem] leading-[1.2] md:leading-snug max-w-3xl text-balance">
       I&apos;m Alvin. I build the auction and finance systems behind
       <a
         href="https://tunasauction.com"
@@ -25,19 +25,19 @@
       Selatan, working with teams anywhere.
     </p>
 
-    <div class="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4 text-sm">
-      <a href="#work" @click.prevent="scrollTo('#work')" class="border border-line rounded-full px-5 py-2 hover:border-foreground transition-colors">
+    <div class="mt-8 sm:mt-10 flex flex-wrap items-center gap-x-3 sm:gap-x-6 gap-y-3 text-sm">
+      <a href="#work" @click.prevent="scrollTo('#work')" class="inline-flex min-h-11 items-center border border-line rounded-full px-5 py-2 hover:border-foreground transition-colors">
         Selected work
       </a>
       <a
         v-if="siteConfig.cvReady"
         :href="siteConfig.cvPath"
         download="Alvin-Malik-Ibrahim-CV.pdf"
-        class="border border-line rounded-full px-5 py-2 hover:border-foreground transition-colors"
+        class="inline-flex min-h-11 items-center border border-line rounded-full px-5 py-2 hover:border-foreground transition-colors"
       >
         Download CV
       </a>
-      <a href="#contact" @click.prevent="scrollTo('#contact')" class="text-link text-muted hover:text-foreground">
+      <a href="#contact" @click.prevent="scrollTo('#contact')" class="inline-flex min-h-11 items-center text-link text-muted hover:text-foreground">
         Get in touch
       </a>
     </div>
