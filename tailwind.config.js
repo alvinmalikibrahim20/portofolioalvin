@@ -13,7 +13,7 @@ export default {
       colors: {
         background: '#FAF9F6',
         foreground: '#1C1B18',
-        muted: '#79766E',
+        muted: '#6B685F',
         line: '#E7E4DC',
         accent: '#A8501F',
       },

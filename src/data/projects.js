@@ -1,0 +1,80 @@
+// Source: existing portfolio descriptions and CV. No private data or inferred backend ownership.
+export const projects = [
+  {
+    slug: 'tunas-auction',
+    title: 'Tunas Auction: one application, web & mobile',
+    period: '2024 — present',
+    client: 'PT Tunas Rent · Tunas Auction',
+    summary: 'A Flutter auction experience covering vehicle discovery, buyer accounts, and live bidding across web, Android, and iOS.',
+    problem: 'Buyers need to move from finding a vehicle to joining a live auction. Separate web and mobile frontends meant maintaining those journeys in more than one place.',
+    solution: 'A shared Flutter frontend for vehicle listings, auction schedules, registration, sign-in, deposits, bidding permits (NIPL), and live auction sessions.',
+    role: 'Maintained the earlier Nuxt website and worked on the transition to a shared Flutter frontend, including buyer accounts and the live bidding experience.',
+    challenge: 'Live bidding brings timing, validation, and account eligibility into the same interface. The buyer journey needs to make the current state clear while supporting web and mobile from the same codebase.',
+    result: 'The frontend now shares a Flutter codebase across web, Android, and iOS, bringing the buyer journey into one implementation.',
+    stack: ['Flutter', 'Dart', 'Nuxt', 'REST API', 'WebSocket', 'OAuth'],
+    contributions: [
+      'Vehicle browsing and auction schedule interfaces.',
+      'Registration, Google sign-in, deposits, and bidding permit flows.',
+      'Live bidding screens connected to real-time auction updates.',
+      'Ongoing frontend maintenance as auction requirements change.',
+    ],
+    image: { src: '/images/projects/tunas-auction-web.webp', width: 1280, height: 800, alt: 'Tunas Auction public homepage with auction schedules and vehicle categories', caption: 'Public homepage screenshot from the portfolio archive. It shows the product context, not a private bidding session.' },
+    additionalImage: { src: '/images/projects/tunas-auction-app.webp', width: 1440, height: 900, alt: 'Tunas Auction buyer sign-in page', caption: 'Public buyer sign-in screen from the portfolio archive.' },
+    evidence: 'Public product screenshots and a link to the live website. Company source code and internal auction data are not published here.',
+    demo: 'https://tunasauction.com',
+    demoLabel: 'Visit Tunas Auction',
+  },
+  {
+    slug: 'finance-operations',
+    title: 'Finance operations & ERP integration',
+    period: '2024 — present',
+    client: 'PT Tunas Rent · Tunas Auction',
+    summary: 'A Vue admin console and ERP integrations connecting auction operations with the finance workflows that follow each sale.',
+    problem: 'Operations and finance teams need connected workflows for vehicle intake, reservations, payments, refunds, settlement, and reporting. Keeping separate records creates manual reconciliation work.',
+    solution: 'A Vue admin console with role-based menus and Microsoft SSO, plus integration with the company ERP. The work also covers vehicle grading and partner-specific reporting.',
+    role: 'Built and maintained admin modules, refactored the ERP integration, and worked on grading, reporting, and the migration of parts of the admin to Odoo.',
+    challenge: 'Auction and ERP data need to stay consistent when transfers fail. Different teams also need different access and report formats for the same underlying operations.',
+    result: 'The admin brings auction and finance workflows together, while ERP synchronization replaces separate manual re-entry for connected records.',
+    stack: ['Vue.js', 'REST API', 'SQL Server', 'Microsoft SSO', 'Odoo', 'PostgreSQL'],
+    contributions: [
+      'Auction events, vehicle data, NIPL and reservation approvals.',
+      'Customer payments, refunds, overpayments, and vendor management.',
+      'ERP synchronization for customers, permits, winners, settlements, refunds, and vendor payments.',
+      'Grading checklists, scoring classifications, and financing-partner reports.',
+    ],
+    domains: [
+      { title: 'Auction operations', items: 'Vehicle intake · events · permits · reservations' },
+      { title: 'Finance console', items: 'Payments · refunds · settlement · vendor records' },
+      { title: 'ERP integration', items: 'Customer records · auction outcomes · financial records' },
+    ],
+    evidence: 'This is internal company work. The overview groups the responsibilities described in this case study; it is not a deployment diagram or a screenshot of a private system.',
+    demo: null,
+  },
+  {
+    slug: 'racer-robot',
+    title: 'Racer Robot: websites for a robotics community',
+    period: '2019 — 2023',
+    client: 'PT Racer Robot Indonesia',
+    summary: 'Company, community, competition, and learning websites, supported by campaign landing pages, technical SEO, and analytics.',
+    problem: 'The company needed web destinations for different audiences: customers, the robotics community, competition participants, and learners.',
+    solution: 'Company and community websites, the IYRA competition website, an e-learning site, and landing pages for Facebook campaigns.',
+    role: 'Designed and developed websites and campaign pages, handled SEO and Google Analytics, and maintained the company’s web presence.',
+    challenge: 'Each website served a different audience. Site content and page structure needed to support both everyday information and time-sensitive campaigns or competition events.',
+    result: 'The company had dedicated web destinations for its business, community, competition, and learning activities, alongside campaign-specific landing pages.',
+    stack: ['PHP', 'Web development', 'Technical SEO', 'Google Analytics'],
+    contributions: [
+      'Website design and development across the company’s web properties.',
+      'Landing pages supporting Facebook advertising campaigns.',
+      'SEO and analytics work supporting the websites.',
+    ],
+    evidence: 'The websites below are external references to past work. They may have changed since my role ended in 2023. The original records identify PHP; a specific CMS is not attributed here.',
+    demo: 'https://racer-robot.id',
+    demoLabel: 'Visit Racer Robot',
+    extraLinks: [{ label: 'IYRA Indonesia', href: 'https://iyra-indonesia.id' }],
+  },
+]
+
+export function findProject(path) {
+  const normalized = path.replace(/\/+$/, '')
+  return projects.find((project) => normalized === '/work/' + project.slug)
+}

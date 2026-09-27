@@ -1,50 +1,31 @@
 <template>
-  <section id="skills" class="max-w-content mx-auto px-4 sm:px-6 md:px-10 py-16 md:py-28 border-t border-line">
-    <div class="grid md:grid-cols-12 gap-8 md:gap-10">
-      <div class="md:col-span-3">
-        <p class="eyebrow reveal">Toolbox</p>
-      </div>
-
-      <div class="md:col-span-9">
-        <dl class="space-y-6">
-          <div
-            v-for="group in groups"
-            :key="group.name"
-            class="reveal grid sm:grid-cols-12 gap-1.5 sm:gap-6 items-baseline"
-          >
-            <dt class="sm:col-span-3 text-sm text-muted">{{ group.name }}</dt>
-            <dd class="sm:col-span-9 text-[15px] leading-relaxed">{{ group.items }}</dd>
+  <section id="skills" class="section-shell" aria-labelledby="skills-title">
+    <div class="section-grid">
+      <h2 id="skills-title" class="eyebrow lg:col-span-3">Skills &amp; stack</h2>
+      <div class="lg:col-span-9">
+        <p class="font-serif text-2xl sm:text-3xl mb-7">The stack I can help you with.</p>
+        <dl class="grid sm:grid-cols-2 gap-x-8 gap-y-6">
+          <div v-for="group in primary" :key="group.name">
+            <dt class="font-medium text-sm mb-3">{{ group.name }}</dt>
+            <dd class="flex flex-wrap gap-2"><span v-for="item in group.items" :key="item" class="tag !text-foreground">{{ item }}</span></dd>
           </div>
         </dl>
-
-        <p class="mt-10 text-sm text-muted reveal max-w-2xl leading-relaxed">
-          I pick tools based on the problem, not the other way around — but
-          these are the ones I keep coming back to.
-        </p>
+        <div class="mt-9 pt-6 border-t border-line">
+          <h3 class="text-sm font-medium mb-3">Also used in production &amp; supporting work</h3>
+          <ul class="flex flex-wrap gap-2"><li v-for="item in supporting" :key="item" class="tag">{{ item }}</li></ul>
+          <a href="/#work" class="text-sm text-link inline-flex min-h-11 items-center mt-3">See the technologies in context →</a>
+        </div>
       </div>
     </div>
   </section>
 </template>
-
 <script setup>
-import { onMounted } from 'vue'
-
-/* Diambil dari CV — hanya yang benar-benar pernah dipakai. */
-const groups = [
-  { name: 'Web', items: 'Vue, Nuxt, JavaScript, PHP, Tailwind CSS' },
-  { name: 'Mobile & cross-platform', items: 'Flutter, Dart' },
-  { name: 'Backend & languages', items: 'Go, Java, C++, PHP, REST APIs' },
-  { name: 'Databases', items: 'MySQL, PostgreSQL, Microsoft SQL Server' },
-  { name: 'Enterprise', items: 'Odoo, ERP integration (FRIENDS by Microsoft), Microsoft SSO' },
-  { name: 'Testing', items: 'Manual QA, automation testing, Katalon' },
-  { name: 'Everything else', items: 'Git, technical SEO, Google Analytics, Mikrotik networking' },
+const primary = [
+  { name: 'Backend & APIs', items: ['Laravel', 'PHP', 'REST API', 'API integration'] },
+  { name: 'Frontend', items: ['Vue.js', 'Nuxt.js', 'JavaScript', 'Tailwind CSS'] },
+  { name: 'Mobile', items: ['Flutter', 'Dart'] },
+  { name: 'Databases', items: ['MySQL', 'SQL', 'PostgreSQL', 'SQL Server'] },
+  { name: 'CMS & website maintenance', items: ['WordPress', 'Bug fixing', 'Application maintenance'] },
 ]
-
-onMounted(() => {
-  const observer = new IntersectionObserver(
-    (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add('visible')),
-    { threshold: 0.1 }
-  )
-  document.querySelectorAll('#skills .reveal').forEach((el) => observer.observe(el))
-})
+const supporting = ['WebSocket', 'OAuth', 'Microsoft SSO', 'ERP integration', 'Odoo', 'Go', 'Git', 'Katalon', 'Technical SEO', 'Google Analytics']
 </script>

@@ -1,73 +1,40 @@
 <template>
-  <section id="services" class="max-w-content mx-auto px-4 sm:px-6 md:px-10 py-16 md:py-28 border-t border-line">
-    <div class="grid md:grid-cols-12 gap-8 md:gap-10">
-      <div class="md:col-span-3">
-        <p class="eyebrow reveal">What I can help with</p>
-      </div>
-
-      <div class="md:col-span-9">
-        <ul>
-          <li
-            v-for="(service, i) in services"
-            :key="service.title"
-            class="reveal py-6 first:pt-0 grid sm:grid-cols-12 gap-3 sm:gap-6"
-            :class="{ 'border-b border-line': i !== services.length - 1 }"
-          >
-            <div class="sm:col-span-4">
-              <h3 class="font-serif text-lg">{{ service.title }}</h3>
-            </div>
-            <p class="sm:col-span-8 text-[15px] leading-relaxed text-muted">
-              {{ service.description }}
-            </p>
+  <section id="services" class="section-shell" aria-labelledby="services-title">
+    <div class="section-grid">
+      <h2 id="services-title" class="eyebrow lg:col-span-3">Development services</h2>
+      <div class="lg:col-span-9">
+        <p class="font-serif text-2xl sm:text-3xl mb-7">A new application, a missing integration,<br class="hidden sm:block" /> or something that needs fixing.</p>
+        <ul class="grid sm:grid-cols-2 gap-x-8">
+          <li v-for="service in services" :key="service.title" class="reveal py-6 border-t border-line">
+            <h3 class="font-medium mb-2">{{ service.title }}</h3>
+            <p class="text-muted text-sm leading-relaxed">{{ service.description }}</p>
           </li>
         </ul>
+        <div class="mt-8 pt-7 border-t border-line">
+          <h3 class="font-serif text-2xl">Ways to work together</h3>
+          <div class="grid sm:grid-cols-3 gap-6 mt-5">
+            <div v-for="model in models" :key="model.title"><h4 class="font-medium text-sm mb-2">{{ model.title }}</h4><p class="text-sm text-muted leading-relaxed">{{ model.description }}</p></div>
+          </div>
+          <p class="text-sm text-muted mt-5">Scope, schedule, and budget are agreed before work starts.</p>
+          <div class="mt-7 flex flex-wrap items-center gap-5"><ContactCta label="Talk through your needs" /><a href="/#contact" class="text-link text-sm min-h-11 inline-flex items-center">Hiring for a role? Get in touch</a></div>
+        </div>
       </div>
     </div>
   </section>
 </template>
-
 <script setup>
-import { onMounted } from 'vue'
-
-/* Hanya hal-hal yang benar-benar sudah pernah saya kerjakan. */
+import ContactCta from './ContactCta.vue'
 const services = [
-  {
-    title: 'Auction & bidding platforms',
-    description:
-      'Real-time bidding that holds up when money is on the line — concurrent bids, countdown logic, deposits and bidding permits, and an admin panel your operations team can run without me.',
-  },
-  {
-    title: 'One codebase, web and mobile',
-    description:
-      'Flutter targeting web, Android, and iOS together. I migrated an auction platform from separate Nuxt and mobile frontends to a single codebase, so features ship once instead of three times.',
-  },
-  {
-    title: 'Admin & finance consoles',
-    description:
-      'The unglamorous internal tooling that businesses actually run on: approvals, master data, payments, refunds, role-based access, and reports that each partner wants in a different shape.',
-  },
-  {
-    title: 'ERP & systems integration',
-    description:
-      'Sync pipelines between your app and an ERP — I built ten of them against Microsoft FRIENDS, covering customers, winners, settlements, and vendor payments. The hard part is what happens when one side fails halfway.',
-  },
-  {
-    title: 'Web apps & marketing sites',
-    description:
-      'Vue or Nuxt frontends, plus the technical SEO and analytics side: Core Web Vitals, structured data, page speed. I ran this for four company sites before moving into auction systems.',
-  },
-  {
-    title: 'QA & testing',
-    description:
-      'Manual and automated testing with Katalon, done before launch rather than after complaints. Useful on projects where a regression costs real money.',
-  },
+  { title: 'Full-stack web development', description: 'Laravel/PHP applications with Vue or Nuxt interfaces, database-backed workflows, and tools your team can use every day.' },
+  { title: 'API development & integration', description: 'REST APIs and connections between applications, business tools, and ERP systems. Bring the data flow you need to connect.' },
+  { title: 'Flutter applications', description: 'Web and mobile interfaces from a shared codebase, including account flows and real-time features.' },
+  { title: 'WordPress development', description: 'Business websites, content updates, and improvements to existing WordPress sites.' },
+  { title: 'Bug fixing & maintenance', description: 'Investigate broken workflows, fix defects, and maintain existing applications as business needs change.' },
+  { title: 'Existing application improvement', description: 'Add features, improve responsive layouts, or untangle integrations without replacing the whole application.' },
 ]
-
-onMounted(() => {
-  const observer = new IntersectionObserver(
-    (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add('visible')),
-    { threshold: 0.1 }
-  )
-  document.querySelectorAll('#services .reveal').forEach((el) => observer.observe(el))
-})
+const models = [
+  { title: 'A defined project', description: 'A new application, integration, or feature with an agreed scope and milestones.' },
+  { title: 'Ongoing support', description: 'Maintenance, bug fixing, and incremental improvements to an existing system.' },
+  { title: 'A role on your team', description: 'Full-stack and Software Engineer opportunities, including remote teams.' },
+]
 </script>

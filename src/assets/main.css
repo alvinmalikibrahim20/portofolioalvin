@@ -1,66 +1,44 @@
+@import '@fontsource/inter/latin-400.css';
+@import '@fontsource/inter/latin-500.css';
+@import '@fontsource/inter/latin-600.css';
+@import '@fontsource/newsreader/latin-400.css';
+@import '@fontsource/newsreader/latin-400-italic.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 1rem;
-    overflow-x: clip;
-  }
-
-  body {
-    @apply bg-background text-foreground font-sans antialiased;
-    font-feature-settings: 'ss01' on, 'cv05' on;
-  }
-
-  img,
-  svg {
-    max-width: 100%;
-  }
-
-  ::selection {
-    background: #1c1b18;
-    color: #faf9f6;
-  }
+  html { scroll-behavior: smooth; scroll-padding-top: 7rem; }
+  body { @apply bg-background text-foreground font-sans antialiased; font-feature-settings: 'ss01' on, 'cv05' on; }
+  img, svg { max-width: 100%; }
+  img { height: auto; }
+  p, li, dd, h1, h2, h3, a { overflow-wrap: break-word; }
+  :focus-visible { outline: 2px solid #A8501F; outline-offset: 5px; }
+  ::selection { background: #1c1b18; color: #faf9f6; }
+  summary::-webkit-details-marker { display: none; }
 }
 
 @layer components {
-  /* Small uppercase label used to mark each section */
-  .eyebrow {
-    @apply text-xs uppercase tracking-[0.14em] text-muted font-medium;
-  }
-
-  /* Underlined text link */
-  .text-link {
-    @apply underline underline-offset-4 decoration-line hover:decoration-foreground transition-colors;
-  }
-
-  /* Understated pill tag */
-  .tag {
-    @apply inline-block border border-line rounded-full px-2.5 py-1 text-xs leading-none text-muted;
-  }
-
-  /* Gentle scroll reveal — subtle enough to not feel animated */
-  .reveal {
-    opacity: 0;
-    transform: translateY(12px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  .page-shell { @apply max-w-content mx-auto px-5 sm:px-8 lg:px-10; }
+  .section-shell { @apply page-shell py-14 lg:py-20 border-t border-line; }
+  .section-grid { @apply grid lg:grid-cols-12 gap-7 lg:gap-10; }
+  .eyebrow { @apply text-xs uppercase tracking-[0.14em] text-muted font-medium; }
+  .text-link { @apply underline underline-offset-4 decoration-line hover:decoration-foreground transition-colors; }
+  .tag { @apply inline-block border border-line rounded-full px-3 py-1.5 text-[13px] leading-none text-muted; }
+  .button-primary, .button-secondary { @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium text-center transition-colors; }
+  .button-primary { @apply bg-accent text-background hover:bg-foreground; }
+  .button-secondary { @apply border border-line hover:border-foreground; }
+  .nav-link { @apply inline-flex min-h-11 items-center text-muted hover:text-foreground transition-colors; }
+  .reveal { opacity: 1; transform: none; }
+  .reveal-enter { animation: reveal-in .45s ease both; }
+  .skip-link { @apply fixed left-4 top-4 z-50 bg-foreground text-background px-4 py-3 rounded; transform: translateY(-200%); }
+  .skip-link:focus { transform: none; }
+  .mobile-contact { padding-bottom: max(.75rem, env(safe-area-inset-bottom)); }
 }
 
+@keyframes reveal-in { from { opacity: .4; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-  .reveal {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
 }

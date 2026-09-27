@@ -37,3 +37,6 @@ pnpm-debug.log*
 
 # v0 local memory notes
 v0_memories/
+
+# Local visual QA artifacts
+tmp/

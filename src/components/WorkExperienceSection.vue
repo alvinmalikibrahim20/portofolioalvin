@@ -1,90 +1,55 @@
 <template>
-  <section
-    v-if="siteConfig.workExperienceReady"
-    id="experience"
-    class="max-w-content mx-auto px-4 sm:px-6 md:px-10 py-16 md:py-28 border-t border-line"
-  >
-    <div class="grid md:grid-cols-12 gap-8 md:gap-10">
-      <div class="md:col-span-3">
-        <p class="eyebrow reveal">Experience</p>
-      </div>
-
-      <div class="md:col-span-9">
-        <ul>
-          <li
-            v-for="(job, i) in jobs"
-            :key="job.company + job.period"
-            class="reveal py-6 first:pt-0 grid sm:grid-cols-12 gap-4 sm:gap-6"
-            :class="{ 'border-b border-line': i !== jobs.length - 1 }"
-          >
-            <div class="sm:col-span-4">
-              <h3 class="font-serif text-lg">{{ job.role }}</h3>
-              <p class="text-sm text-muted mt-1">{{ job.company }}</p>
-              <p class="text-sm text-muted">{{ job.period }}</p>
+  <section v-if="siteConfig.workExperienceReady" id="experience" class="section-shell" aria-labelledby="experience-title">
+    <div class="section-grid">
+      <div class="lg:col-span-3"><h2 id="experience-title" class="eyebrow">Selected experience</h2><p class="mt-3 text-sm text-muted">Roles focused on software.<br />Contributions beyond the job title.</p></div>
+      <div class="lg:col-span-9">
+        <ol>
+          <li v-for="(job, i) in jobs" :key="job.company" class="reveal py-8 first:pt-0" :class="{ 'border-b border-line': i !== jobs.length - 1 }">
+            <div class="flex flex-col sm:flex-row sm:justify-between gap-2 mb-4">
+              <div><h3 class="font-serif text-2xl">{{ job.role }}</h3><p v-if="job.official" class="text-xs text-muted mt-1">Official title: {{ job.official }}</p><p class="text-sm font-medium mt-2">{{ job.company }}</p></div>
+              <p class="text-sm text-muted sm:shrink-0 sm:pt-1">{{ job.period }}</p>
             </div>
-            <div class="sm:col-span-8">
-              <ul class="space-y-2 text-[15px] leading-relaxed text-muted list-disc pl-4 marker:text-line">
-                <li v-for="point in job.highlights" :key="point">{{ point }}</li>
-              </ul>
-            </div>
+            <ul class="space-y-2 leading-relaxed text-muted list-disc pl-5"><li v-for="point in job.highlights" :key="point">{{ point }}</li></ul>
+            <ul class="flex flex-wrap gap-2 mt-4" aria-label="Technologies used"><li v-for="tech in job.stack" :key="tech" class="tag">{{ tech }}</li></ul>
           </li>
-        </ul>
+        </ol>
       </div>
     </div>
   </section>
 </template>
-
 <script setup>
-import { onMounted } from 'vue'
 import { siteConfig } from '../site.config.js'
-
-/* Data asli, diambil dari CV Alvin Malik Ibrahim. */
 const jobs = [
   {
-    role: 'Programmer Staff',
-    company: 'PT Tunas Rent — Tunas Auction',
-    period: 'Apr 2024 — Present',
+    role: 'Full-stack Developer',
+    official: 'Programmer Staff',
+    company: 'PT Tunas Rent · Tunas Auction',
+    period: 'Apr 2024 — present',
+    stack: ['Vue.js', 'Nuxt', 'Flutter', 'REST API', 'SQL Server', 'Odoo'],
     highlights: [
-      'Maintain and extend the public auction platform, first in Nuxt and now as a single Flutter codebase serving web, Android, and iOS.',
-      'Built and still run the finance and operations admin console in Vue, now around 100 modules covering the whole auction lifecycle.',
-      'Refactored the admin to integrate with the company ERP (FRIENDS by Microsoft), replacing manual data entry with ten sync pipelines for customers, permits, winners, settlements, refunds, and vendor payments.',
-      'Migrating parts of the admin onto Odoo, and built the vehicle grading and partner reporting modules.',
-    ],
-  },
-  {
-    role: 'Engineer & Logistics',
-    company: 'PT Pacific Cipta Nusantara',
-    period: 'Mar 2023 — May 2023',
-    highlights: [
-      'Short engineering and logistics assignment between development roles.',
+      'Maintain the auction website and work on the transition from Nuxt to a shared Flutter frontend for web and mobile.',
+      'Build and maintain the Vue admin console used by finance and operations for auction, payment, refund, and reporting workflows.',
+      'Refactor integrations between the admin console and company ERP, connecting customer, permit, settlement, refund, and vendor records.',
+      'Develop vehicle grading and partner reports, and contribute to the migration of parts of the admin to Odoo.',
     ],
   },
   {
     role: 'Web Developer & Digital Marketing',
     company: 'PT Racer Robot Indonesia',
     period: 'Aug 2019 — Mar 2023',
+    stack: ['PHP', 'Web development', 'SEO', 'Google Analytics'],
     highlights: [
-      'Designed and built four company sites — the corporate site, a robotics community site, the IYRA competition site, and an e-learning platform.',
-      'Built Facebook ad landing pages and handled SEO and Google Analytics.',
-      'Organised IYRA robotics competitions from regional through to international level.',
-      'Served as master trainer and speaker for train-the-trainer programmes at partner schools.',
+      'Designed and developed company, robotics community, IYRA competition, and e-learning websites.',
+      'Built Facebook campaign landing pages and handled website SEO and analytics.',
+      'Helped organize robotics competitions and delivered training for teachers at partner schools.',
     ],
   },
   {
-    role: 'Intern — Hacking & Security',
+    role: 'Security Intern',
     company: 'Badan Pengkajian dan Penerapan Teknologi (BPPT)',
-    period: 'Jan 2018 — Mar 2018',
-    highlights: [
-      'Internship in the government technology agency\u2019s security division.',
-    ],
+    period: 'Jan — Mar 2018',
+    stack: ['Hacking & security'],
+    highlights: ['Completed an internship in the government technology agency’s hacking and security division.'],
   },
 ]
-
-onMounted(() => {
-  const observer = new IntersectionObserver(
-    (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add('visible')),
-    { threshold: 0.1 }
-  )
-  document.querySelectorAll('#experience .reveal').forEach((el) => observer.observe(el))
-})
 </script>

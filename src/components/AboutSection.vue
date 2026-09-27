@@ -1,63 +1,15 @@
 <template>
-  <section id="about" class="max-w-content mx-auto px-4 sm:px-6 md:px-10 py-16 md:py-28 border-t border-line">
-    <div class="grid md:grid-cols-12 gap-8 md:gap-10">
-      <div class="md:col-span-3">
-        <p class="eyebrow reveal">About</p>
-      </div>
-
-      <div class="md:col-span-6 reveal">
-        <div class="space-y-5 text-[15px] leading-relaxed">
-          <p>
-            I&apos;ve spent the last few years on one hard problem: a vehicle
-            auction business where real money moves every day. Live bids that
-            must never double-count, deposits and refunds that have to
-            reconcile, and a finance team that needs the numbers to match the
-            ERP exactly — not approximately.
-          </p>
-          <p>
-            That work has taken me across the whole stack. Flutter for the
-            buyer-facing app, now running web and mobile from one codebase. Vue
-            for the admin console the finance and operations teams live in. And
-            a set of sync pipelines into the company ERP, which taught me more
-            about failure handling than any tutorial did.
-          </p>
-          <p>
-            Before this I built websites and ran SEO at a robotics company, and
-            spent four years organising international robotics competitions and
-            training teachers. It made me comfortable explaining technical
-            things to people who don&apos;t want the technical version.
-          </p>
-          <p>
-            I&apos;m open to freelance work and full-time roles, especially where
-            the domain is messy and the details matter.
-          </p>
-        </div>
-      </div>
-
-      <div class="md:col-span-3 reveal">
-        <img
-          v-if="!showFallback"
-          src="/images/alvin.png"
-          alt="Portrait of Alvin Malik Ibrahim"
-          class="w-full max-w-[11rem] sm:max-w-[13rem] rounded-sm grayscale object-cover object-top aspect-[3/4]"
-          @error="showFallback = true"
-        />
-        <p class="mt-3 text-xs text-muted">Tangerang Selatan, Indonesia</p>
+  <section id="about" class="section-shell" aria-labelledby="about-title">
+    <div class="section-grid">
+      <h2 id="about-title" class="eyebrow lg:col-span-3">About Alvin</h2>
+      <div class="lg:col-span-9 max-w-2xl space-y-4 text-muted leading-relaxed">
+        <p class="font-serif text-2xl sm:text-3xl text-foreground leading-snug">Comfortable with the details that matter after an application goes live.</p>
+        <p>I’m a full-stack developer based in Indonesia. My web development work began at Racer Robot in 2019; at Tunas Auction, I work on web and mobile applications and the finance tools behind them.</p>
+        <p>Live bids must not double-count. Deposits and refunds need to reconcile. Finance records have to agree across applications. These are the kinds of requirements that make the work interesting to me.</p>
+        <p>My work spans Flutter interfaces, Vue admin tools, and ERP integration. I also bring experience in website development, SEO, and explaining technical work to people outside engineering.</p>
+        <p>Before Tunas, I helped organize robotics competitions and trained teachers at partner schools. That experience still shapes how I communicate: understand the problem, explain the options, and make the next step clear.</p>
+        <a href="/#contact" class="inline-flex min-h-11 items-center text-link text-foreground">Talk about a project or a role →</a>
       </div>
     </div>
   </section>
 </template>
-
-<script setup>
-import { ref, onMounted } from 'vue'
-
-const showFallback = ref(false)
-
-onMounted(() => {
-  const observer = new IntersectionObserver(
-    (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add('visible')),
-    { threshold: 0.1 }
-  )
-  document.querySelectorAll('#about .reveal').forEach((el) => observer.observe(el))
-})
-</script>
