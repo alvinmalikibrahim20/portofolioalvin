@@ -2,6 +2,7 @@
 export const projects = [
   {
     slug: 'tunas-auction',
+    scene: 'auction', // home card shows the 3D auction (AuctionScene.vue) instead of the screenshot
     title: 'Tunas Auction: one application, web & mobile',
     period: '2024 — present',
     client: 'PT Tunas Rent · Tunas Auction',
@@ -26,6 +27,7 @@ export const projects = [
   },
   {
     slug: 'finance-operations',
+    scene: 'finance', // home card shows the 3D reconciliation flow (FinanceScene.vue)
     title: 'Finance operations & ERP integration',
     period: '2024 — present',
     client: 'PT Tunas Rent · Tunas Auction',
@@ -52,6 +54,9 @@ export const projects = [
   },
   {
     slug: 'racer-robot',
+    scene: 'robotics', // home card shows the robotics R&D scene (RoboticsScene.vue)
+    // TODO(alvin): the card text below covers the website work only. Add the instructor + IoT/ML R&D side here
+    // (which prototypes, boards/tools such as Arduino, ESP32, Python, and who they were for) once confirmed.
     title: 'Racer Robot: websites for a robotics community',
     period: '2019 — 2023',
     client: 'PT Racer Robot Indonesia',

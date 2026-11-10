@@ -9,7 +9,8 @@
 @tailwind utilities;
 
 @layer base {
-  html { scroll-behavior: smooth; scroll-padding-top: 7rem; }
+  /* Smooth scrolling is handled by Lenis in src/motion.js; native smooth would fight it. */
+  html { scroll-padding-top: 7rem; }
   body { @apply bg-background text-foreground font-sans antialiased; font-feature-settings: 'ss01' on, 'cv05' on; }
   img, svg { max-width: 100%; }
   img { height: auto; }
@@ -30,15 +31,35 @@
   .button-primary { @apply bg-accent text-background hover:bg-foreground; }
   .button-secondary { @apply border border-line hover:border-foreground; }
   .nav-link { @apply inline-flex min-h-11 items-center text-muted hover:text-foreground transition-colors; }
-  .reveal { opacity: 1; transform: none; }
-  .reveal-enter { animation: reveal-in .45s ease both; }
+  /* Mouse-only effects created by src/motion.js */
+  .cursor-dot, .cursor-ring, .cursor-glow { position: fixed; left: 0; top: 0; pointer-events: none; border-radius: 9999px; }
+  .cursor-dot { z-index: 60; width: 6px; height: 6px; margin: -3px 0 0 -3px; background: #A8501F; }
+  .cursor-ring {
+    z-index: 59; width: 36px; height: 36px; margin: -18px 0 0 -18px; border: 1px solid rgb(28 27 24 / .3);
+    display: grid; place-items: center; color: #FAF9F6; font-size: 11px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase;
+    transition: width .35s, height .35s, margin .35s, background-color .35s, border-color .35s;
+  }
+  .cursor-ring span { opacity: 0; transition: opacity .2s; }
+  .cursor-ring.is-link { width: 56px; height: 56px; margin: -28px 0 0 -28px; border-color: #A8501F; }
+  .cursor-ring.is-view { width: 84px; height: 84px; margin: -42px 0 0 -42px; background: #A8501F; border-color: #A8501F; }
+  .cursor-ring.is-view span { opacity: 1; }
+  .cursor-ring.is-view ~ .cursor-dot { scale: 0; }
+  .cursor-dot { transition: scale .2s; }
+  .cursor-glow { z-index: 1; width: 560px; height: 560px; margin: -280px 0 0 -280px; mix-blend-mode: multiply; background: radial-gradient(circle, rgb(168 80 31 / .11), transparent 65%); }
+  .tilt { position: relative; display: block; overflow: hidden; }
+  .tilt::after {
+    content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity .3s;
+    background: radial-gradient(420px circle at var(--gx, 50%) var(--gy, 50%), rgb(255 255 255 / .35), transparent 60%);
+  }
+  .tilt:hover::after { opacity: 1; }
   .skip-link { @apply fixed left-4 top-4 z-50 bg-foreground text-background px-4 py-3 rounded; transform: translateY(-200%); }
   .skip-link:focus { transform: none; }
   .mobile-contact { padding-bottom: max(.75rem, env(safe-area-inset-bottom)); }
 }
 
-@keyframes reveal-in { from { opacity: .4; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+/* Cross-fade between the static pages (home ↔ case studies) where supported. */
+@view-transition { navigation: auto; }
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
+  @view-transition { navigation: none; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }

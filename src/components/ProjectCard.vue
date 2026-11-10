@@ -6,9 +6,12 @@
     </div>
     <h3 class="font-serif text-2xl sm:text-3xl leading-tight mb-3"><a :href="'/work/' + project.slug + '/'" class="hover:text-accent">{{ project.title }}</a></h3>
     <p class="text-muted mb-5 max-w-2xl leading-relaxed">{{ project.summary }}</p>
-    <figure v-if="project.image && siteConfig.projectImagesReady" class="mb-5">
-      <a :href="'/work/' + project.slug + '/'" :aria-label="'Read case study: ' + project.title">
-        <img :src="project.image.src" :alt="project.image.alt" :width="project.image.width" :height="project.image.height" class="w-full rounded-sm border border-line" loading="lazy" decoding="async" />
+    <AuctionScene v-if="project.scene === 'auction'" />
+    <FinanceScene v-else-if="project.scene === 'finance'" />
+    <RoboticsScene v-else-if="project.scene === 'robotics'" />
+    <figure v-else-if="project.image && siteConfig.projectImagesReady" class="mb-5">
+      <a :href="'/work/' + project.slug + '/'" :aria-label="'Read case study: ' + project.title" class="tilt rounded-sm border border-line">
+        <img :src="project.image.src" :alt="project.image.alt" :width="project.image.width" :height="project.image.height" class="w-full" loading="lazy" decoding="async" />
       </a>
       <figcaption class="text-xs text-muted mt-2 leading-relaxed">{{ project.image.caption }}</figcaption>
     </figure>
@@ -22,5 +25,8 @@
 </template>
 <script setup>
 import { siteConfig } from '../site.config.js'
+import AuctionScene from './AuctionScene.vue'
+import FinanceScene from './FinanceScene.vue'
+import RoboticsScene from './RoboticsScene.vue'
 defineProps({ project: { type: Object, required: true }, index: { type: Number, default: 0 }, isLast: Boolean })
 </script>

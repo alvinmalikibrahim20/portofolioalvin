@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-background text-foreground pb-24 lg:pb-0">
+  <div class="min-h-screen bg-background text-foreground pb-24 lg:pb-0 overflow-x-clip">
     <a href="#main-content" class="skip-link">Skip to content</a>
     <Navbar />
     <main id="main-content" tabindex="-1">
@@ -21,7 +21,7 @@
   </div>
 </template>
 <script setup>
-import { computed, onMounted, onUnmounted } from 'vue'
+import { computed, onMounted } from 'vue'
 import Home from './pages/Home.vue'
 import CaseStudy from './pages/CaseStudy.vue'
 import Navbar from './components/Navbar.vue'
@@ -35,18 +35,7 @@ const socialLinks = [
   { label: 'LinkedIn', href: profile.linkedin }, { label: 'GitHub', href: profile.github },
   { label: 'Portfolio source', href: profile.source },
 ]
-let observer
-onMounted(() => {
-  if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
-  // Content stays visible even if this enhancement cannot initialize.
-  observer = new IntersectionObserver((entries) => {
-    for (const entry of entries) {
-      if (!entry.isIntersecting) continue
-      entry.target.classList.add('reveal-enter')
-      observer.unobserve(entry.target)
-    }
-  }, { threshold: 0.05 })
-  document.querySelectorAll('.reveal').forEach((el) => observer.observe(el))
-})
-onUnmounted(() => observer?.disconnect())
+// Loaded after hydration so GSAP/Lenis never run during prerender; content stays visible if it fails.
+// shortcut: no teardown, App lives for the whole page (static multi-page site); add cleanup if a client router is introduced.
+onMounted(() => import('./motion.js').then((m) => m.initMotion()).catch(() => {}))
 </script>

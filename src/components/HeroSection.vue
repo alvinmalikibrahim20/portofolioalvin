@@ -1,5 +1,6 @@
 <template>
-  <section id="top" class="page-shell pt-12 sm:pt-16 lg:pt-24 pb-14 lg:pb-20" aria-labelledby="hero-title">
+  <section id="top" class="page-shell relative isolate pt-12 sm:pt-16 lg:pt-24 pb-14 lg:pb-20" aria-labelledby="hero-title">
+    <Hero3D />
     <div class="grid gap-10 lg:grid-cols-[1fr_220px] lg:gap-16 items-center">
       <div>
         <p class="eyebrow mb-5 flex items-center gap-2"><span class="h-2 w-2 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>Open to freelance &amp; remote roles</p>
@@ -31,4 +32,5 @@
 <script setup>
 import { siteConfig } from '../site.config.js'
 import ContactCta from './ContactCta.vue'
+import Hero3D from './Hero3D.vue'
 </script>
