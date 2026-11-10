@@ -27,7 +27,6 @@ export function initMotion() {
   headlines()
   reveals()
   timeline()
-  heroPhoto()
   projectImages()
   if (matchMedia('(pointer: fine)').matches) {
     cursor()
@@ -87,11 +86,6 @@ function timeline() {
   })
 }
 
-function heroPhoto() {
-  const img = document.querySelector('#top figure img')
-  if (!img) return
-  gsap.to(img, { yPercent: -12, ease: 'none', scrollTrigger: { trigger: '#top', start: 'top top', end: 'bottom top', scrub: true } })
-}
 
 function projectImages() {
   document.querySelectorAll('.tilt img').forEach((img) => {
@@ -136,7 +130,7 @@ function magnetic() {
 }
 
 function tilt() {
-  document.querySelectorAll('.tilt, #top figure img').forEach((el) => {
+  document.querySelectorAll('.tilt').forEach((el) => {
     gsap.set(el, { transformPerspective: 900 })
     el.addEventListener('pointermove', (e) => {
       const r = el.getBoundingClientRect(), px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height
