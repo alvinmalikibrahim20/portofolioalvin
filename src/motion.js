@@ -75,9 +75,15 @@ function reveals() {
 function timeline() {
   const line = document.querySelector('.timeline-progress')
   if (!line) return
-  gsap.fromTo(line, { scaleY: 0 }, {
-    scaleY: 1, ease: 'none',
-    scrollTrigger: { trigger: line.parentElement, start: 'top 70%', end: 'bottom 60%', scrub: true },
+  const track = line.parentElement
+  const scroll = { trigger: track, start: 'top 70%', end: 'bottom 60%', scrub: true, invalidateOnRefresh: true }
+  gsap.fromTo(line, { scaleY: 0 }, { scaleY: 1, ease: 'none', scrollTrigger: scroll })
+  // A ball rolls down the line with the fill: distance / circumference gives the turns.
+  const ball = track.querySelector('.timeline-ball')
+  if (!ball) return
+  gsap.fromTo(ball, { y: 0, rotation: 0 }, {
+    y: () => track.offsetHeight, rotation: () => (track.offsetHeight / (Math.PI * ball.offsetWidth)) * 360,
+    ease: 'none', scrollTrigger: { ...scroll, scrub: 0.6 },
   })
 }
 

@@ -4,7 +4,7 @@
       <div class="lg:col-span-3"><h2 id="experience-title" class="eyebrow">Selected experience</h2><p class="mt-3 text-sm text-muted">Roles focused on software.<br />Contributions beyond the job title.</p></div>
       <div class="lg:col-span-9">
         <div class="relative lg:pl-10">
-          <span aria-hidden="true" class="hidden lg:block absolute left-0 top-2 bottom-2 w-px bg-line"><span class="timeline-progress block h-full w-full bg-accent origin-top"></span></span>
+          <span aria-hidden="true" class="hidden lg:block absolute left-0 top-2 bottom-2 w-px bg-line"><span class="timeline-progress block h-full w-full bg-accent origin-top"></span><span class="timeline-ball"></span></span>
         <ol>
           <li v-for="(job, i) in jobs" :key="job.company" class="reveal py-8 first:pt-0" :class="{ 'border-b border-line': i !== jobs.length - 1 }">
             <div class="flex flex-col sm:flex-row sm:justify-between gap-2 mb-4">

@@ -46,6 +46,13 @@
   .cursor-ring.is-view ~ .cursor-dot { scale: 0; }
   .cursor-dot { transition: scale .2s; }
   .cursor-glow { z-index: 1; width: 560px; height: 560px; margin: -280px 0 0 -280px; mix-blend-mode: multiply; background: radial-gradient(circle, rgb(168 80 31 / .11), transparent 65%); }
+  /* Ball that rolls down the experience timeline (driven by src/motion.js; rests at the top otherwise). */
+  .timeline-ball {
+    position: absolute; left: 50%; top: 0; width: 18px; height: 18px; margin: -9px 0 0 -9px; border-radius: 9999px; overflow: hidden;
+    background: radial-gradient(circle at 34% 30%, #F6D3B8, #A8501F 55%, #5E2A0E);
+    box-shadow: 0 6px 12px rgb(168 80 31 / .35);
+  }
+  .timeline-ball::after { content: ''; position: absolute; inset: 7px -2px; background: rgb(250 249 246 / .5); } /* band shows the roll */
   .tilt { position: relative; display: block; overflow: hidden; }
   .tilt::after {
     content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity .3s;

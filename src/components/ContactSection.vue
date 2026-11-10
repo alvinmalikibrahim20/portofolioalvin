@@ -1,6 +1,7 @@
 <template>
   <section id="contact" class="section-shell" aria-labelledby="contact-title">
-    <div class="section-grid">
+    <div class="section-grid relative">
+      <ContactPlane />
       <h2 id="contact-title" class="eyebrow lg:col-span-3">Let’s work together</h2>
       <div class="lg:col-span-9">
         <p class="font-serif text-3xl sm:text-4xl leading-tight max-w-2xl">Have a project in mind,<br />or a system that needs fixing?</p>
@@ -34,6 +35,7 @@
 <script setup>
 import { profile, siteConfig } from '../site.config.js'
 import ContactCta from './ContactCta.vue'
+import ContactPlane from './ContactPlane.vue'
 const steps = [
   { title: 'Share the context', text: 'Your goal, existing application, and the problem you need to solve.' },
   { title: 'Agree on the work', text: 'Discuss scope, priorities, schedule, and how we’ll communicate.' },
