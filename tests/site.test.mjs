@@ -21,6 +21,16 @@ test('public CV and social preview exist, and the legacy private-detail CV is no
   await assert.rejects(access(resolve(root, 'cv/alvin-malik-ibrahim-cv.pdf')))
 })
 
+test('every image the home page references, and every asset the 3D scenes load, ships in the build', async () => {
+  const html = await htmlFor('/')
+  const images = [...html.matchAll(/src="(\/images\/[^"]+)"/g)].map((m) => m[1])
+  assert.ok(images.includes('/images/hero-scene.webp'), 'hero still is in the prerendered HTML')
+  // Loaded from JavaScript, so not visible in the HTML.
+  const scripted = ['hero-real', 'auction', 'finance', 'robotics'].map((n) => `/models/${n}.glb`)
+    .concat(Array.from({ length: 24 }, (_, i) => `/images/plane/fold-${String(i).padStart(2, '0')}.webp`))
+  for (const path of [...images, ...scripted]) await access(resolve(root, '.' + path))
+})
+
 test('visitors receive readable home content before JavaScript executes', async () => {
   const html = await htmlFor('/')
   assert.equal((html.match(/<h1\b/g) || []).length, 1, 'one visible primary heading')

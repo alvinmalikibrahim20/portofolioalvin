@@ -59,7 +59,7 @@ export async function initRobotics3D(root) {
   const netDots = Array.from({ length: 4 }, () => { const d = new THREE.Mesh(dotGeo, new THREE.MeshBasicMaterial({ color: 0xe0703a })); scene.add(d); return d })
 
   let target = 0, p = 0
-  ScrollTrigger.create({ trigger: root, start: 'center center', end: '+=1400', pin: true, onUpdate: (self) => { target = self.progress } })
+  ScrollTrigger.create({ trigger: root, start: 'center center', end: '+=1000', pin: true, onUpdate: (self) => { target = self.progress } })
   ScrollTrigger.sort() // scenes load in any order; pins must refresh top-to-bottom or later pins miss earlier spacers
   ScrollTrigger.refresh()
   root.classList.add('is-live')

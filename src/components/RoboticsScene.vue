@@ -21,7 +21,6 @@
         <p class="stamp is-on">Model ready</p>
       </div>
     </div>
-    <!-- TODO(alvin): replace with the real projects once known, e.g. which IoT/ML prototypes, boards (Arduino/ESP32), and who they were for. -->
     <figcaption class="text-xs text-muted mt-2 leading-relaxed">An illustration of the robotics side of this role: teaching, and R&amp;D prototypes in IoT and machine learning.</figcaption>
   </figure>
 </template>

@@ -55,19 +55,20 @@ export const projects = [
   {
     slug: 'racer-robot',
     scene: 'robotics', // home card shows the robotics R&D scene (RoboticsScene.vue)
-    // TODO(alvin): the card text below covers the website work only. Add the instructor + IoT/ML R&D side here
-    // (which prototypes, boards/tools such as Arduino, ESP32, Python, and who they were for) once confirmed.
-    title: 'Racer Robot: websites for a robotics community',
+    // TODO(alvin): optionally name specific IoT/ML prototypes and tools (e.g. boards, languages) once you want them listed.
+    title: 'Racer Robot: robotics training, R&D, and the web',
     period: '2019 — 2023',
     client: 'PT Racer Robot Indonesia',
-    summary: 'Company, community, competition, and learning websites, supported by campaign landing pages, technical SEO, and analytics.',
+    summary: 'Robotics trainer covering IoT and machine learning, R&D on prototypes when projects needed it, and the company, community, competition, and learning websites.',
     problem: 'The company needed web destinations for different audiences: customers, the robotics community, competition participants, and learners.',
     solution: 'Company and community websites, the IYRA competition website, an e-learning site, and landing pages for Facebook campaigns.',
-    role: 'Designed and developed websites and campaign pages, handled SEO and Google Analytics, and maintained the company’s web presence.',
+    role: 'Trained participants in robotics, IoT, and machine learning, and joined R&D on prototypes. On the web side, designed and developed websites and campaign pages, handled SEO and Google Analytics, and maintained the company’s web presence.',
     challenge: 'Each website served a different audience. Site content and page structure needed to support both everyday information and time-sensitive campaigns or competition events.',
     result: 'The company had dedicated web destinations for its business, community, competition, and learning activities, alongside campaign-specific landing pages.',
-    stack: ['PHP', 'Web development', 'Technical SEO', 'Google Analytics'],
+    stack: ['Robotics', 'IoT', 'Machine learning', 'PHP', 'Web development', 'Technical SEO', 'Google Analytics'],
     contributions: [
+      'Robotics training covering IoT and machine learning.',
+      'R&D on robotics prototypes alongside the training work.',
       'Website design and development across the company’s web properties.',
       'Landing pages supporting Facebook advertising campaigns.',
       'SEO and analytics work supporting the websites.',

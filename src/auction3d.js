@@ -39,7 +39,7 @@ export async function initAuction3D(root) {
 
   // Pin the card while the auction plays out; progress is eased in the frame loop.
   let target = 0, p = 0
-  ScrollTrigger.create({ trigger: root, start: 'center center', end: '+=1600', pin: true, onUpdate: (self) => { target = self.progress } })
+  ScrollTrigger.create({ trigger: root, start: 'center center', end: '+=1100', pin: true, onUpdate: (self) => { target = self.progress } })
   ScrollTrigger.sort() // scenes load in any order; pins must refresh top-to-bottom or later pins miss earlier spacers
   ScrollTrigger.refresh()
 

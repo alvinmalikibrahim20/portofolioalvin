@@ -40,8 +40,9 @@ const jobs = [
     role: 'Web Developer & Digital Marketing',
     company: 'PT Racer Robot Indonesia',
     period: 'Aug 2019 — Mar 2023',
-    stack: ['PHP', 'Web development', 'SEO', 'Google Analytics'],
+    stack: ['PHP', 'Web development', 'SEO', 'Google Analytics', 'Robotics', 'IoT', 'Machine learning'],
     highlights: [
+      'Worked as a robotics trainer covering IoT and machine learning, and joined R&D on prototypes.',
       'Designed and developed company, robotics community, IYRA competition, and e-learning websites.',
       'Built Facebook campaign landing pages and handled website SEO and analytics.',
       'Helped organize robotics competitions and delivered training for teachers at partner schools.',

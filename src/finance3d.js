@@ -49,7 +49,7 @@ export async function initFinance3D(root) {
   screen.material.emissive = new THREE.Color(0xe0703a)
 
   let target = 0, p = 0
-  ScrollTrigger.create({ trigger: root, start: 'center center', end: '+=1400', pin: true, onUpdate: (self) => { target = self.progress } })
+  ScrollTrigger.create({ trigger: root, start: 'center center', end: '+=1000', pin: true, onUpdate: (self) => { target = self.progress } })
   ScrollTrigger.sort() // scenes load in any order; pins must refresh top-to-bottom or later pins miss earlier spacers
   ScrollTrigger.refresh()
   root.classList.add('is-live')
