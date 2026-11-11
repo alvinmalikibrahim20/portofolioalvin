@@ -35,7 +35,9 @@ onMounted(() => {
   const desktop = matchMedia('(min-width: 1024px) and (pointer: fine)').matches
   const still = matchMedia('(prefers-reduced-motion: reduce)').matches
   if (!desktop || still || navigator.connection?.saveData) return
-  import('../finance3d.js').then((m) => m.initFinance3D(root.value)).catch(() => {})
+  import('../scene-pin.js')
+    .then(({ pinScene }) => { const pin = pinScene(root.value, 1000); return import('../finance3d.js').then((m) => m.initFinance3D(root.value, pin)) })
+    .catch(() => {})
 })
 </script>
 

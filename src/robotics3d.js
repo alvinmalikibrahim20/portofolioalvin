@@ -1,8 +1,6 @@
 // Racer Robot R&D scene (model from blender/robotics.py): the card pins while a line-follower robot
 // drives its track, streams sensor data to the cloud (IoT), and a small neural network lights up (ML).
 // Loaded lazily by RoboticsScene.vue on desktop only.
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { THREE, createStage, ease, clamp01 } from './three-stage.js'
 
 const SEND = [0.22, 0.7], LEARN = 0.5, READY = 0.86, READINGS = 1248
@@ -10,8 +8,8 @@ const LAYERS = [3, 4, 2] // neural net shape
 const window01 = (p, [from, to]) => ease((p - from) / 0.08) * (1 - ease((p - to) / 0.08))
 const wrap = (a) => Math.atan2(Math.sin(a), Math.cos(a))
 
-export async function initRobotics3D(root) {
-  gsap.registerPlugin(ScrollTrigger)
+// pin: the ScrollTrigger from scene-pin.js (created by the card before this module loads).
+export async function initRobotics3D(root, pin) {
   const host = root.querySelector('.robotics-canvas')
   const countEl = root.querySelector('.count'), stampEl = root.querySelector('.stamp')
   const stepEls = [...root.querySelectorAll('[data-at]')]
@@ -58,16 +56,13 @@ export async function initRobotics3D(root) {
   const cloudToNet = new THREE.Vector3().copy(nodes[0][1].position).add(net.position)
   const netDots = Array.from({ length: 4 }, () => { const d = new THREE.Mesh(dotGeo, new THREE.MeshBasicMaterial({ color: 0xe0703a })); scene.add(d); return d })
 
-  let target = 0, p = 0
-  ScrollTrigger.create({ trigger: root, start: 'center center', end: '+=1000', pin: true, onUpdate: (self) => { target = self.progress } })
-  ScrollTrigger.sort() // scenes load in any order; pins must refresh top-to-bottom or later pins miss earlier spacers
-  ScrollTrigger.refresh()
+  let p = 0
   root.classList.add('is-live')
   stampEl.classList.remove('is-on')
 
   const beaconPos = new THREE.Vector3(), tmp = new THREE.Vector3()
   start((t, mouse) => {
-    p += (target - p) * 0.08
+    p += (pin.progress - p) * 0.08
 
     // Drive the ellipse: scroll moves it most, time keeps it gently rolling.
     const a = p * Math.PI * 2 + t * 0.15

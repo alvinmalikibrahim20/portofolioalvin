@@ -1,16 +1,14 @@
 // Finance operations scene (model from blender/finance.py): the card pins while payments flow from
 // auction operations into the finance console, records sync on to the ERP, and both ledgers square up.
 // Loaded lazily by FinanceScene.vue on desktop only.
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { THREE, createStage, floorBlob, ease, clamp01 } from './three-stage.js'
 
 const FLOW_A = [0.08, 0.6], FLOW_B = [0.32, 0.8] // scroll windows: payments A→B, ERP sync B→C
 const ALIGN = 0.55, RECONCILED = 0.86, UNMATCHED = 24
 const window01 = (p, [from, to]) => ease((p - from) / 0.08) * (1 - ease((p - to) / 0.08))
 
-export async function initFinance3D(root) {
-  gsap.registerPlugin(ScrollTrigger)
+// pin: the ScrollTrigger from scene-pin.js (created by the card before this module loads).
+export async function initFinance3D(root, pin) {
   const host = root.querySelector('.finance-canvas')
   const countEl = root.querySelector('.count'), stampEl = root.querySelector('.stamp')
   const stepEls = [...root.querySelectorAll('[data-at]')]
@@ -48,16 +46,13 @@ export async function initFinance3D(root) {
   screen.material = screen.material.clone()
   screen.material.emissive = new THREE.Color(0xe0703a)
 
-  let target = 0, p = 0
-  ScrollTrigger.create({ trigger: root, start: 'center center', end: '+=1000', pin: true, onUpdate: (self) => { target = self.progress } })
-  ScrollTrigger.sort() // scenes load in any order; pins must refresh top-to-bottom or later pins miss earlier spacers
-  ScrollTrigger.refresh()
+  let p = 0
   root.classList.add('is-live')
   stampEl.classList.remove('is-on')
 
   const v = new THREE.Vector3()
   start((t, mouse) => {
-    p += (target - p) * 0.08
+    p += (pin.progress - p) * 0.08
 
     // Coins (payments) then cards (ERP records) stream along the rails while their window is open.
     const open = flows.map(({ items, rail, window, speed }) => {

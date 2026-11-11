@@ -163,7 +163,8 @@ function systemsLayer(rig, from) {
 // settled: render the end of the intro immediately (used to capture the still in scripts/hero-still.html).
 export async function initHero3D(host, section, { settled = false } = {}) {
   const { renderer, scene, camera, model, start } = await createStage(host, { modelUrl: '/models/hero-real.glb', watch: section })
-  renderer.shadowMap.enabled = true
+  // Real-time shadows are the costliest part of the hero; skip them on low-core / low-memory laptops.
+  renderer.shadowMap.enabled = (navigator.hardwareConcurrency ?? 8) > 4 && (navigator.deviceMemory ?? 8) > 4
   renderer.shadowMap.type = THREE.PCFSoftShadowMap
   camera.position.set(0.6, 2.8, 11)
   camera.lookAt(0.6, 0.6, -0.6) // keeps devices + systems inside the 4:3 stage (the still is cropped to it)

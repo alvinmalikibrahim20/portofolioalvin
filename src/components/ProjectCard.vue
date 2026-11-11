@@ -1,5 +1,6 @@
 <template>
-  <li class="reveal py-9 first:pt-0" :class="{ 'border-b border-line': !isLast }">
+  <!-- Cards with a pinned 3D scene skip the reveal: a transformed ancestor would stop the pin from fixing to the screen. -->
+  <li class="py-9 first:pt-0" :class="{ reveal: !project.scene, 'border-b border-line': !isLast }">
     <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs uppercase tracking-wider text-muted mb-3">
       <span class="text-accent">{{ index === 0 ? 'Featured case study' : '0' + (index + 1) + ' / Case study' }}</span>
       <span>{{ project.period }}</span>

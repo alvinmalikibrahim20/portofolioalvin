@@ -16,7 +16,7 @@ addEventListener('pointermove', (e) => { mouse.x = (e.clientX / innerWidth) * 2 
  */
 export async function createStage(host, { modelUrl, fov = 30, envIntensity = 0.8, watch = host }) {
   const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'low-power' })
-  renderer.setPixelRatio(Math.min(devicePixelRatio, 2))
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5)) // 2x retina doubles the pixel work for little visible gain while scrolling
   renderer.toneMapping = THREE.ACESFilmicToneMapping
   host.appendChild(renderer.domElement)
 

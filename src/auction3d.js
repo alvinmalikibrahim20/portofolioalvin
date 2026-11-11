@@ -1,8 +1,6 @@
 // Tunas Auction scene (model from blender/auction.py): the section pins while the visitor scrolls
 // through a live auction — bids from web, Android and iOS, then the gavel and "Sold".
 // Loaded lazily by AuctionScene.vue on desktop only.
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { THREE, createStage, floorBlob, ease, clamp01 } from './three-stage.js'
 
 // Scroll progress (0..1) at which each bid lands. Paddle index matches Paddle0..2 in the model.
@@ -16,8 +14,8 @@ const BIDS = [
 const STRIKE = 0.78, SOLD = 0.83
 const rupiah = (n) => 'Rp ' + new Intl.NumberFormat('id-ID').format(Math.round(n / 1000) * 1000)
 
-export async function initAuction3D(root) {
-  gsap.registerPlugin(ScrollTrigger)
+// pin: the ScrollTrigger from scene-pin.js (created by the card before this module loads).
+export async function initAuction3D(root, pin) {
   const host = root.querySelector('.auction-canvas')
   const priceEl = root.querySelector('.price'), historyEl = root.querySelector('.history'), stampEl = root.querySelector('.stamp')
 
@@ -38,17 +36,14 @@ export async function initAuction3D(root) {
   const paddleBase = paddles.map((p) => p.position.clone())
 
   // Pin the card while the auction plays out; progress is eased in the frame loop.
-  let target = 0, p = 0
-  ScrollTrigger.create({ trigger: root, start: 'center center', end: '+=1100', pin: true, onUpdate: (self) => { target = self.progress } })
-  ScrollTrigger.sort() // scenes load in any order; pins must refresh top-to-bottom or later pins miss earlier spacers
-  ScrollTrigger.refresh()
+  let p = 0
 
   let shown = -1, shownPrice = BIDS[0].price
   root.classList.add('is-live')
   stampEl.classList.remove('is-on')
 
   start((t, mouse) => {
-    p += (target - p) * 0.08
+    p += (pin.progress - p) * 0.08
 
     // Bids → price counter, history, paddles.
     const current = BIDS.reduce((idx, bid, i) => (p >= bid.at ? i : idx), 0)
