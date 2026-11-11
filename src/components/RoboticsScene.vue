@@ -32,7 +32,9 @@ const root = ref()
 onMounted(() => {
   const desktop = matchMedia('(min-width: 1024px) and (pointer: fine)').matches
   const still = matchMedia('(prefers-reduced-motion: reduce)').matches
-  if (!desktop || still || navigator.connection?.saveData) return
+  if (still) return
+  // Phones and data-saver: no WebGL, but the HUD still plays the scene's story when it scrolls into view.
+  if (!desktop || navigator.connection?.saveData) return void import('../scene-hud.js').then((m) => m.playHud(root.value, 'robotics')).catch(() => {})
   import('../scene-pin.js')
     .then(({ pinScene }) => { const pin = pinScene(root.value, 1000); return import('../robotics3d.js').then((m) => m.initRobotics3D(root.value, pin)) })
     .catch(() => {})

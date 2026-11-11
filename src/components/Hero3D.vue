@@ -31,6 +31,11 @@ onMounted(() => {
 .hero-3d { position: absolute; inset: -14% -24% -12% -14%; pointer-events: none; opacity: 0; transition: opacity 1.2s ease; }
 .hero-stage.is-live .hero-still { opacity: 0; }
 .hero-stage.is-live .hero-3d { opacity: 1; }
+/* Phones show the still: give it a slow camera drift so the hero isn't frozen. */
+@media (max-width: 1023px) and (prefers-reduced-motion: no-preference) {
+  .hero-still { animation: drift 9s ease-in-out infinite alternate; }
+}
+@keyframes drift { from { transform: scale(1) translate(0, 0); } to { transform: scale(1.05) translate(-1.5%, -1%); } }
 .hero-3d :deep(canvas) { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
 .sys-label {
   position: absolute; z-index: 1; translate: -50% -140%; opacity: 0; white-space: nowrap;
